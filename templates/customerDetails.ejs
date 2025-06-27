@@ -1,0 +1,66 @@
+<div class="quote-header">
+    <div class="quote-header-cell">
+        <div class="quote-header-label cell">Quote DATE:</div>
+        <div class="quote-header-value"><%= new Date().toDateString() %></div>
+    </div>
+    <div class="quote-header-cell">
+        <div class="quote-header-label cell">EXPIRATION:</div>
+        <div class="quote-header-value"><%= new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toDateString() %></div>
+    </div>
+    <div class="quote-header-cell">
+        <div class="quote-header-label cell">JOB NAME:</div>
+        <div class="quote-header-value"></div>
+    </div>
+    <div class="quote-header-cell">
+        <div class="quote-header-label cell cell-last">CUSTOMER PO:</div>
+        <div class="quote-header-value"></div>
+    </div>
+</div>
+
+<div class="customer-info">
+    <div class="customer-info-cell">
+        <div class="customer-info-label cell">CUSTOMER NAME:</div>
+        <div class="customer-info-value"><%= customer.firstName %> <%= customer.lastName %></div>
+    </div>
+    <div class="customer-info-cell">
+        <div class="customer-info-label cell">CONTACT NAME:</div>
+        <div class="customer-info-value">Adam Pollack</div>
+    </div>
+    <div class="customer-info-cell">
+        <div class="customer-info-label cell">PHONE:</div>
+        <div class="customer-info-value"><%= customer.phone || 'N/A' %></div>
+    </div>
+    <div class="customer-info-cell">
+        <div class="customer-info-label cell cell-last">EMAIL:</div>
+        <div class="customer-info-value">adam@buildingsupplybff.com</div>
+    </div>
+</div>
+
+<div class="address-section">
+    <div class="address-column">
+        <div class="address-header cell">BILL TO:</div>
+        <div class="address-content">
+            <div><%= customer.firstName %> <%= customer.lastName %></div>
+            <div><%= customer.address %></div>
+            <div><%= customer.city %> <%= customer.state %> <%= customer.zipCode %></div>
+            <div><%= customer.country === 'US' ? 'United States' : customer.country %></div>
+        </div>
+    </div>
+    <div class="address-column">
+        <div class="address-header cell cell-last">SHIP TO:</div>
+        <div class="address-content">
+            <div><%= customer.firstName %> <%= customer.lastName %></div>
+            <div><%= customer.address %></div>
+            <div><%= customer.city %> <%= customer.state %> <%= customer.zipCode %></div>
+            <div><%= customer.country === 'US' ? 'United States' : customer.country %></div>
+        </div>
+    </div>
+</div>
+
+<div class="company-info">
+    <div>Henderson Glass</div>
+    <div>3918 Frontage Road</div>
+    <div>Bullhead City, AZ 86442</div>
+    <div>928-538-8793 - Office/Natalie</div>
+    <div>TechGlazer = Jason cell# 909-544-8034</div>
+</div>

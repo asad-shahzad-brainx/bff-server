@@ -1,0 +1,35 @@
+{
+  "name": "bff-server",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "dev:all": "concurrently \"npm run dev\" \"nodemon workers/worker.js\" --names \"app,worker\" --prefix-colors \"cyan,magenta\"",
+    "watch:templates": "NODE_ENV=development nodemon --watch templates --ext ejs --exec \"node scripts/regenerateTemplates.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@shopify/admin-api-client": "^1.0.8",
+    "axios": "^1.9.0",
+    "bullmq": "^5.53.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "form-data": "^4.0.2",
+    "ioredis": "^5.6.1",
+    "multer": "^1.4.5-lts.2",
+    "puppeteer": "^24.10.0",
+    "puppeteer-cluster": "^0.24.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "nodemon": "^3.1.10"
+  }
+}

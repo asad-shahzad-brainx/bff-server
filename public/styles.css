@@ -1,0 +1,365 @@
+/* css reset */
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+/* end css reset */
+
+/* Common border class for labels */
+.cell {
+  border-left: 1px solid #000;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.cell,
+.cell + * {
+  padding: 4px 8px;
+}
+
+.cell-last {
+  border-right: 1px solid #000;
+}
+
+.invert-colors .cell {
+  border-color: #fff;
+  background-color: #444;
+  color: #fff;
+}
+
+.secondary-colors .cell {
+  border-color: #fff;
+  background-color: #ccc;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.4;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+header {
+  margin-bottom: 24px;
+}
+
+header .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quote-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-bottom: 10px;
+}
+
+.quote-header-label {
+  background-color: #f0f0f0;
+  font-weight: bold;
+  text-align: center;
+  padding: 4px;
+}
+
+.quote-header-value {
+  text-align: center;
+  padding: 4px;
+  min-height: 20px;
+}
+
+.customer-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-bottom: 10px;
+}
+
+.customer-info-label {
+  background-color: #f0f0f0;
+  font-weight: bold;
+  padding: 4px;
+}
+
+.customer-info-value {
+  padding: 4px;
+  min-height: 20px;
+}
+
+.address-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 10px;
+}
+
+.address-column {
+  padding: 0;
+}
+
+.address-column:last-child {
+  border-right: none;
+}
+
+.address-header {
+  background-color: #f0f0f0;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px;
+}
+
+.address-content {
+  padding: 12px;
+  min-height: 100px;
+}
+
+.address-content div {
+  margin-bottom: 2px;
+}
+
+.company-info {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  color: #666;
+}
+
+.company-info div {
+  margin-bottom: 2px;
+}
+
+.item-header {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #000;
+}
+
+.item-specification-container,
+.item-details {
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  margin-bottom: 12px;
+}
+
+.item-details-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.item-details-value {
+  text-transform: capitalize;
+}
+
+.item-specification-row {
+  display: flex;
+  gap: 4px;
+}
+
+.item-specification-label {
+  font-weight: 600;
+}
+
+.item-specification-value {
+  text-transform: capitalize;
+}
+
+.item-illustration-container {
+  margin-bottom: 4rem;
+}
+
+.door-illustration-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+footer {
+  margin-top: 4rem;
+}
+
+.tc-container {
+  margin-bottom: 4rem;
+  padding: 16px;
+  border: 2px solid #000;
+}
+
+.footer-container {
+  margin-bottom: 24px;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer-info span {
+  position: relative;
+}
+
+.footer-info span:not(:last-child):before {
+  content: "|";
+  position: absolute;
+  left: 100%;
+  top: 0;
+  transform: translateX(0.45rem);
+}
+
+/* illustration styles */
+.door-illustration-container {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  height: 100%;
+}
+
+.illustration-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+/* #kickplates {
+  transform-origin: bottom right;
+  transform: scale(1.05);
+} */
+
+.door-illustration-container.opening-type-selection g:not(.double-door, .single-door),
+.door-illustration-container.opening-type-selection .illustration-container:has(.frame),
+/* .door-illustration-container.opening-type-selection .illustration-container:has(.frame), */
+.door-illustration-container.door-type-selection g:not(.double-door, .single-door),
+.door-illustration-container.door-type-selection .illustration-container:has(.frame),
+.door-illustration-container.rough-opening-dimensions g:not(.double-door, .single-door, .height, .height-finished, .height-rough, .width, .width-finished, .width-rough),
+.door-illustration-container.finished-opening-dimensions g:not(.double-door, .single-door, .height, .height-finished, .height-rough, .width, .width-finished, .width-rough),
+.door-illustration-container.window-type-selection g:not(.double-door, .single-door, .height, .height-finished, .height-rough, .width, .width-finished, .width-rough, .window),
+.door-illustration-container.color-selection g:not(.double-door, .single-door, .height, .height-finished, .height-rough, .width, .width-finished, .width-rough, .window),
+.door-illustration-container.jamb-guard-selection
+  g:not(.double-door, .single-door, .height, .height-finished, .height-rough, .width, .width-finished, .width-rough, .window, .jamb-guard, .jamb-guard--left, .jamb-guard--right, .left-hinge, .right-hinge),
+.door-illustration-container.jamb-guard-options
+  g:not(.double-door, .single-door, .height, .height-finished, .height-rough, .width, .width-finished, .width-rough, .window, .jamb-guard, .jamb-guard--left, .jamb-guard--right, .left-hinge, .right-hinge),
+  .door-illustration-container.hinge-location g:not(.double-door, .single-door, .height, .height-finished, .height-rough, .width, .width-finished, .width-rough, .window, .left-hinge, .right-hinge) {
+  display: none;
+}
+
+svg {
+  max-width: 100%;
+  max-height: 100%;
+  width: 250px;
+  height: auto;
+}
+
+.jamb-guard.full > * {
+  transform: scale(1.2);
+}
+
+.jamb-guard--left {
+  transform-origin: bottom left;
+  transform-origin: 65px 270px;
+}
+
+.jamb-guard--right {
+  transform-origin: bottom right;
+  transform-origin: 170px 270px;
+}
+
+.single-door .jamb-guard.full {
+  transform: scale(1.2);
+}
+
+.measurement-value {
+  font-size: 10px;
+  fill: black;
+  text-anchor: middle;
+  alignment-baseline: middle;
+}
+.measurement-value--vertical {
+  transform: rotate(-90deg);
+}
+/* end illustration styles */
