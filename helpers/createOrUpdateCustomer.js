@@ -19,7 +19,7 @@ const createOrUpdateCustomer = async (contactInformation) => {
   });
 
   if (customerByIdentifier === null) {
-    const { data } = await client.request(customerCreate, {
+    const { data, errors } = await client.request(customerCreate, {
       variables: {
         input: {
           email,
