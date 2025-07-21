@@ -317,18 +317,39 @@
   
       <% if (roughOpeningWidth > 0) { %>
         <g class="width">
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M69.75 0V53.5H69.25V0H69.75ZM70.75 28V56.5H70.25V28H70.75Z"
-            fill="black"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M169.25 53V0H169.75V53H169.25Z"
-            fill="black"
-          />
+          <g class="width-rough">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M69.75 0V53.5H69.25V0H69.75ZM70.75 28V56.5H70.25V28H70.75Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M119.75 55.5V27H120.25V55.5H119.75Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M72.5 3.94339L70 2.50002L72.5 1.05664V2.25002H113V2.75002H72.5V3.94339Z"
+              fill="black"
+            />
+            <text class="measurement-value" x="119.5" y="3"><%= roughOpeningWidth %></text>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M166.5 1.05664L169 2.50002L166.5 3.94339V2.75002H126V2.25002H166.5V1.05664Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M169.25 53V0H169.75V53H169.25Z"
+              fill="black"
+            />
+          </g>
           <path
             fill-rule="evenodd"
             clip-rule="evenodd"
@@ -339,25 +360,6 @@
             fill-rule="evenodd"
             clip-rule="evenodd"
             d="M118.25 55.5V27H118.75V55.5H118.25Z"
-            fill="black"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M119.75 55.5V27H120.25V55.5H119.75Z"
-            fill="black"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M72.5 3.94339L70 2.50002L72.5 1.05664V2.25002H113V2.75002H72.5V3.94339Z"
-            fill="black"
-          />
-          <text class="measurement-value" x="119.5" y="3"><%= roughOpeningWidth %></text>
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M166.5 1.05664L169 2.50002L166.5 3.94339V2.75002H126V2.25002H166.5V1.05664Z"
             fill="black"
           />
           <path
