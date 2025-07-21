@@ -186,13 +186,10 @@ const calculateDoorPrice = async (
     if (isNaN(width) || isNaN(height) || height <= 0) return 0;
 
     // Find closest standard size
-    const { width: closestWidth, height: closestHeight } = findClosestSize(
-      width,
-      height
-    );
+    const { width: closestWidth } = findClosestSize(width, height);
 
     // Create lookup key
-    const key = `${closestWidth}_${closestHeight}`;
+    const key = `${closestWidth}_${height}`;
 
     // Calculate base bumper price
     const material = doorConfig.bumperMaterial;

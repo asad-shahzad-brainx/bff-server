@@ -14,7 +14,7 @@ export const checkTeamMembership = async (token) => {
     }
 
     const email = customer.email;
-    if (email) {
+    if (!email) {
       return false;
     }
 

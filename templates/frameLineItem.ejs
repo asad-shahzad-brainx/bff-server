@@ -6,7 +6,7 @@
     </div>
     <div class="item-header-cell">
       <div class="item-header-label cell">ITEM</div>
-      <div class="item-header-value"><%= item.name %></div>
+      <div class="item-header-value">Frame for <%= item.name %></div>
     </div>
     <div class="item-header-cell">
       <div class="item-header-label cell">QTY</div>
@@ -14,11 +14,11 @@
     </div>
     <div class="item-header-cell">
       <div class="item-header-label cell">UNIT PRICE</div>
-      <div class="item-header-value"><%= (Number(lineItem.priceOverride.amount) / Number(lineItem.quantity)).toFixed(2) + " " + lineItem.priceOverride.currencyCode %></div>
+      <div class="item-header-value"><%= (Number(getCustomAttribute(lineItem.customAttributes, '_frame')?.value || 0) + Number(getCustomAttribute(lineItem.customAttributes, '_shippingPerUnit')?.value || 0)).toFixed(2) + " " + lineItem.priceOverride.currencyCode %></div>
     </div>
     <div class="item-header-cell">
       <div class="item-header-label cell">EXT. PRICE</div>
-      <div class="item-header-value"><%= Number(lineItem.priceOverride.amount).toFixed(2) + " " + lineItem.priceOverride.currencyCode %></div>
+      <div class="item-header-value"><%= ((Number(getCustomAttribute(lineItem.customAttributes, '_frame')?.value || 0) + Number(getCustomAttribute(lineItem.customAttributes, '_shippingPerUnit')?.value || 0)) * Number(lineItem.quantity)).toFixed(2) + " " + lineItem.priceOverride.currencyCode %></div>
     </div>
   </div>
 
@@ -31,15 +31,15 @@
       </div>
       <div class="item-details-cell">
         <div class="item-details-label cell">COLOR/FINISH</div>
-        <div class="item-details-value"><%= item.doorConfig.doorColor?.split('-').join(' ') %></div>
+        <div class="item-details-value">None</div>
       </div>
       <div class="item-details-cell">
         <div class="item-details-label cell">BUMPER/KICKPLATE</div>
-        <div class="item-details-value"><%= item.doorConfig.protectionType %></div>
+        <div class="item-details-value">N/A</div>
       </div>
       <div class="item-details-cell">
         <div class="item-details-label cell">WINDOW SIZE</div>
-        <div class="item-details-value"><%= item.doorConfig.windowType === 'standard' ? '9" x 14"' : `${item.doorConfig.customWindowWidth}" x ${item.doorConfig.customWindowHeight}"` %></div>
+        <div class="item-details-value">N/A</div>
       </div>
       <div class="item-details-cell">
         <div class="item-details-label cell cell-last">FRAME (Y/N)</div>
@@ -52,7 +52,7 @@
     <div class="item-specification"></div>
     <div class="item-specification">
       <% for (const [key, value] of Object.entries(item.doorConfig)) { %>
-        <% if (key.startsWith('_') || key.toLowerCase().includes('step') || value === false || value === '' || value === null || key.toLowerCase().includes('photo')) { continue; } %>
+        <% if (key.startsWith('_') || !['frameType', 'roughOpeningWallThickness', 'jambDepth'].includes(key) || key.toLowerCase().includes('step') || value === false || value === '' || value === null || key.toLowerCase().includes('photo')) { continue; } %>
 
         <div class="item-specification-row">
           <div class="item-specification-label"><%= formatKey(key) %>:</div>
@@ -63,6 +63,6 @@
   </div>
 
   <div class="item-illustration-container">
-    <%- include('illustration', { ...item.doorConfig }) %>
+    <%- include('frameIllustration', { ...item.doorConfig }) %>
   </div>
 </div>

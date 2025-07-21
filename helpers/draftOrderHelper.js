@@ -16,7 +16,7 @@ const warrantyProduct = {
 };
 
 const getItemWeightage = (doorConfig) => {
-  return doorConfig.frameType ? 2 : 1;
+  return doorConfig.frameType !== "none" ? 2 : 1;
 };
 
 const calculateShippingPerUnit = (cartItems) => {
@@ -43,6 +43,12 @@ const generateDraftOrderInput = async (requestBody, files = []) => {
     state,
     country,
     zipCode,
+    useSameAddress,
+    billingAddress,
+    billingCity,
+    billingState,
+    billingZipCode,
+    billingCountry,
   } = contactInformation;
 
   if (!email && !phone) {
@@ -55,6 +61,10 @@ const generateDraftOrderInput = async (requestBody, files = []) => {
   const lineItems = await Promise.all(
     cartItems.map(async (item, index) => {
       const { doorConfig, handle, quantity, margins } = item;
+      if (!doorConfig) {
+        return;
+      }
+
       const marginConfig = margins && JSON.parse(margins);
 
       const itemPhotos = files.filter((file) =>
@@ -71,9 +81,17 @@ const generateDraftOrderInput = async (requestBody, files = []) => {
 
       const customAttributes = [];
 
-      if (!doorConfig) {
-        return;
+      for (const [key, value] of Object.entries(doorPrice.breakdown)) {
+        customAttributes.push({
+          key: `_${key}`,
+          value: String(value),
+        });
       }
+
+      customAttributes.push({
+        key: `_shippingPerUnit`,
+        value: String(shippingPerUnit),
+      });
 
       const keysToExclude = [
         "currentSubStepIndex",
@@ -170,7 +188,7 @@ const generateDraftOrderInput = async (requestBody, files = []) => {
     input.phone = phone;
   }
 
-  input.tags = [];
+  input.tags = ["Customer Flow"];
 
   const parsedUpsells = JSON.parse(selectedUpsells);
   const warrantyType = parsedUpsells.id;
@@ -210,6 +228,19 @@ const generateDraftOrderInput = async (requestBody, files = []) => {
     lastName,
     phone,
   };
+
+  if (!useSameAddress || useSameAddress === "false") {
+    input.billingAddress = {
+      address1: billingAddress,
+      city: billingCity,
+      provinceCode: billingState,
+      zip: billingZipCode,
+      countryCode: billingCountry,
+      firstName,
+      lastName,
+      phone,
+    };
+  }
 
   input.metafields = [
     {

@@ -15,12 +15,43 @@ function formatKey(key) {
     .replace(/-/g, " ");
 }
 
+// create a closure based counter
+function createCounter() {
+  let count = 0;
+  return () => {
+    count++;
+    return count;
+  };
+}
+
+function getCustomAttribute(customAttributes, key) {
+  return customAttributes.find((attr) => attr.key === key);
+}
+
+function getWarrantyLineItem(lineItems) {
+  return lineItems.find((lineItem) => lineItem.title === "Lifetime Warranty");
+}
+
+function getOrderTotal(lineItems) {
+  return lineItems.reduce((acc, lineItem) => {
+    if (lineItem.title === "Lifetime Warranty") {
+      return acc + Number(lineItem.originalUnitPriceWithCurrency.amount);
+    }
+    return acc + Number(lineItem.priceOverride.amount);
+  }, 0);
+}
+
 const renderTemplate = async (templateName, data = {}) => {
   try {
+    const counter = createCounter();
     const templatePath = path.join(templatesPath, `${templateName}.ejs`);
     const html = await ejs.renderFile(templatePath, {
       ...data,
       formatKey,
+      counter,
+      getCustomAttribute,
+      getWarrantyLineItem,
+      getOrderTotal,
     });
     return html;
   } catch (error) {

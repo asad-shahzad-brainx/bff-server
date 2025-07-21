@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 // TODO: configure rate limiting
 
 // TODO: configure cors
-app.use(cors());
+app.use(cors({ origin: "*" }));
 // app.use(
 //   cors({
 //     origin: "https://buildingsupplybff.com",

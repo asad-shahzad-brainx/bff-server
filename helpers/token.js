@@ -1,9 +1,20 @@
 import crypto from "crypto";
+import dotenv from "dotenv";
+dotenv.config();
 
-const secret = Buffer.from(
-  "2be10af2a68e0a5fc6b4c86c95a05de07a51e2a7de3c7eb9748a81a60b8f63c3",
-  "hex"
-);
+const ENCRYPTION_SECRET = process.env.ENCRYPTION_SECRET;
+
+if (!ENCRYPTION_SECRET) {
+  throw new Error("ENCRYPTION_SECRET environment variable is required");
+}
+
+if (ENCRYPTION_SECRET.length !== 64) {
+  throw new Error(
+    "ENCRYPTION_SECRET must be exactly 64 hex characters (32 bytes) for AES-256"
+  );
+}
+
+const secret = Buffer.from(ENCRYPTION_SECRET, "hex");
 
 export function encryptToken(id) {
   const iv = crypto.randomBytes(8);

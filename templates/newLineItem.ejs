@@ -1,0 +1,4 @@
+<%- include('doorLineItem', { item: item, index: index, lineItem: lineItem }) %>
+<% if (item.doorConfig.frameType !== 'none') { %>
+  <%- include('frameLineItem', { item: item, index: index, lineItem: lineItem }) %>
+<% } %>

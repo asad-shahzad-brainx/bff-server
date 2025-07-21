@@ -1,0 +1,120 @@
+<div class="door-illustration-container">  
+  <div class="illustration-container">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="149"
+      height="343"
+      viewBox="0 0 149 343"
+      fill="none"
+      class="frame"
+    >
+      <path
+        d="M114 285.5L117 284V287L115 288.5H114V287M114 285.5V287M114 285.5L112.75 284.25M114 287H113M113 287L112.875 285.625M113 287H111.5M113 287V290L110 291.5V288M112.75 284.25L111.5 283V280L110 281V283.5L111 284.25M112.75 284.25L112.875 285.625M112.875 285.625L112 286H111.5M111 284.25V286H111.5M111 284.25L109.5 286V288H110M110 288L111.5 287M111.5 287V286"
+        stroke="black"
+        stroke-width="0.5"
+      />
+      <path
+        d="M120.5 119V335.5L119.5 336.5V335M119.5 335V119.5L116 121.5V333.5L119.5 335Z"
+        stroke="black"
+        stroke-width="0.5"
+      />
+      <path d="M34.5 81.5L39 79.5L46 83L41.5 86" stroke="black" stroke-width="0.5" />
+      <path d="M31 80L38.5 76" stroke="black" stroke-width="0.5" />
+      <path d="M21.5 76L107.5 126.5V342.5" stroke="black" stroke-width="0.5" />
+      <path d="M109 125.5L23 75L21 75.5L24 77.5" stroke="black" stroke-width="0.5" />
+      <path d="M26.5 60V75" stroke="black" stroke-width="0.5" />
+      <path
+        d="M26.5 63L29.3854 62.9114L27.8659 60.4569L26.5 63ZM37 56.5L34.1146 56.5886L35.6341 59.0431L37 56.5ZM28.5447 62.0283L35.2185 57.8969L34.9553 57.4717L28.2815 61.6031L28.5447 62.0283Z"
+        fill="black"
+      />
+      <path d="M38.5 31V68" stroke="black" stroke-width="0.5" />
+      <path d="M37.5 54.5V68.5" stroke="black" stroke-width="0.5" />
+      <path
+        d="M26 40.5L28.8867 40.4871L27.4322 37.9936L26 40.5ZM38 33.5L35.1133 33.5129L36.5678 36.0064L38 33.5ZM28.0695 39.5822L36.1825 34.8497L35.9305 34.4178L27.8175 39.1503L28.0695 39.5822Z"
+        fill="black"
+      />
+      <path d="M25.5 38.5V75.5" stroke="black" stroke-width="0.5" />
+      <path d="M109 342.5V125.5" stroke="black" stroke-width="0.5" />
+      <path
+        d="M21 75.5L25.5 83.5L103 129L107.5 126.5L116 121.596M119 119.865L120.5 119L34 68.5L33 69L34 69.5915M119 119.865L116 121.596M119 119.865L35.5 70.4786M116 121.596L38.5 76L35.5 70.4786M35.5 70.4786L34 69.5915M34 69.5915V78.5"
+        stroke="black"
+        stroke-width="0.5"
+      />
+      <path d="M33 69V79" stroke="black" stroke-width="0.5" />
+      <path
+        d="M113.5 150.5L116.5 149V152L114.5 153.5H113.5V152M113.5 150.5V152M113.5 150.5L112.25 149.25M113.5 152H112.5M112.5 152L112.375 150.625M112.5 152H111M112.5 152V155L109.5 156.5V153M112.25 149.25L111 148V145L109.5 146V148.5L110.5 149.25M112.25 149.25L112.375 150.625M112.375 150.625L111.5 151H111M110.5 149.25V151H111M110.5 149.25L109 151V153H109.5M109.5 153L111 152M111 152V151"
+        stroke="black"
+        stroke-width="0.5"
+      />
+      <path
+        d="M116 333.5L109 337.5V342.5H107.5L103.5 340.5L103 129"
+        stroke="black"
+        stroke-width="0.5"
+      />
+      <path
+        d="M38 91.5V288L26 294.5M26 294.5V84L21.5 76V292L26 294.5Z"
+        stroke="black"
+        stroke-width="0.5"
+      />
+      <path
+        d="M27 286L28.4454 288.499L29.8868 285.998L27 286ZM28.8246 287.34L56.3752 303.217L56.6248 302.783L29.0743 286.907L28.8246 287.34Z"
+        fill="black"
+      />
+      <path
+        d="M103 330.5L101.604 327.973L100.114 330.445L103 330.5ZM101.202 329.124L69.1291 309.786L68.8709 310.214L100.944 329.552L101.202 329.124Z"
+        fill="black"
+      />
+    
+      <% if (jambDepth > 0) { %>
+        <text
+          class="frame-depth"
+          style="fill: black; font-size: 8px; text-anchor: middle"
+          x="50"
+          y="25"
+        >
+          JAMB DEPTH = <%= jambDepth %>
+        </text>
+      <% } %> 
+    
+      <% if (roughOpeningWallThickness > 0) { %>
+        <text
+          class="frame-depth"
+          style="fill: black; font-size: 8px"
+          x="42.5"
+          y="58"
+        >
+          WALL THICKNESS = <%= roughOpeningWallThickness %>
+        </text>
+      <% } %> 
+    
+      <% if (roughOpeningHeight > 0) { %>
+        <g class="frame-height">
+          <text style="fill: black; font-size: 8px; text-anchor: middle" x="8" y="182.5">
+            <%= roughOpeningHeight %>
+          </text>
+          <path
+            d="M8 284L9.44338 281.5H6.55662L8 284ZM8.25 281.75V184H7.75V281.75H8.25Z"
+            fill="black"
+          />
+          <path
+            d="M8 73.5L6.55662 76H9.44338L8 73.5ZM7.75 75.75V175.5H8.25V75.75H7.75Z"
+            fill="black"
+          />
+          <path d="M18.5 78.5L6 71" stroke="black" stroke-width="0.5" />
+          <path d="M18.5 291L6 284" stroke="black" stroke-width="0.5" />
+        </g>
+      <% } %>
+    
+      <% if (roughOpeningWidth > 0) { %>
+        <text
+          class="frame-width"
+          style="fill: black; font-size: 8px; text-anchor: middle"
+          x="62"
+          y="309"
+        >
+          <%= roughOpeningWidth %>
+        </text>
+      <% } %>
+    </svg>
+  </div>
+</div>

@@ -37,8 +37,9 @@ const createOrUpdateCustomer = async (contactInformation) => {
     });
 
     customer = data?.customerCreate?.customer;
+    console.log("error", errors);
 
-    if (customer.id) {
+    if (customer?.id) {
       const { data } = await client.request(
         customerGenerateAccountActivationUrl,
         {

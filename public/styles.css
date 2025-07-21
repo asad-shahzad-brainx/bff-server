@@ -288,6 +288,11 @@ footer {
   transform: translateX(0.45rem);
 }
 
+.footer-info a {
+  color: #000;
+  text-decoration: none;
+}
+
 /* illustration styles */
 .door-illustration-container {
   display: flex;
@@ -311,9 +316,9 @@ footer {
   transform: scale(1.05);
 } */
 
-.door-illustration-container.opening-type-selection g:not(.double-door, .single-door),
-.door-illustration-container.opening-type-selection .illustration-container:has(.frame),
 /* .door-illustration-container.opening-type-selection .illustration-container:has(.frame), */
+/* .door-illustration-container.opening-type-selection g:not(.double-door, .single-door),
+.door-illustration-container.opening-type-selection .illustration-container:has(.frame),
 .door-illustration-container.door-type-selection g:not(.double-door, .single-door),
 .door-illustration-container.door-type-selection .illustration-container:has(.frame),
 .door-illustration-container.rough-opening-dimensions g:not(.double-door, .single-door, .height, .height-finished, .height-rough, .width, .width-finished, .width-rough),
@@ -326,7 +331,7 @@ footer {
   g:not(.double-door, .single-door, .height, .height-finished, .height-rough, .width, .width-finished, .width-rough, .window, .jamb-guard, .jamb-guard--left, .jamb-guard--right, .left-hinge, .right-hinge),
   .door-illustration-container.hinge-location g:not(.double-door, .single-door, .height, .height-finished, .height-rough, .width, .width-finished, .width-rough, .window, .left-hinge, .right-hinge) {
   display: none;
-}
+} */
 
 svg {
   max-width: 100%;

@@ -41,9 +41,15 @@
         <div class="address-header cell">BILL TO:</div>
         <div class="address-content">
             <div><%= customer.firstName %> <%= customer.lastName %></div>
-            <div><%= customer.address %></div>
-            <div><%= customer.city %> <%= customer.state %> <%= customer.zipCode %></div>
-            <div><%= customer.country === 'US' ? 'United States' : customer.country %></div>
+            <% if (customer.useSameAddress === false || customer.useSameAddress === 'false') { %>
+                <div><%= customer.billingAddress %></div>
+                <div><%= customer.billingCity %> <%= customer.billingState %> <%= customer.billingZipCode %></div>
+                <div><%= customer.billingCountry === 'US' ? 'United States' : customer.billingCountry %></div>
+            <% } else { %>
+                <div><%= customer.address %></div>
+                <div><%= customer.city %> <%= customer.state %> <%= customer.zipCode %></div>
+                <div><%= customer.country === 'US' ? 'United States' : customer.country %></div>
+            <% } %>
         </div>
     </div>
     <div class="address-column">
@@ -55,12 +61,4 @@
             <div><%= customer.country === 'US' ? 'United States' : customer.country %></div>
         </div>
     </div>
-</div>
-
-<div class="company-info">
-    <div>Henderson Glass</div>
-    <div>3918 Frontage Road</div>
-    <div>Bullhead City, AZ 86442</div>
-    <div>928-538-8793 - Office/Natalie</div>
-    <div>TechGlazer = Jason cell# 909-544-8034</div>
 </div>

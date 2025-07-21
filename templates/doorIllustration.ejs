@@ -1,0 +1,1131 @@
+<div class="door-illustration-container">
+  <div class="illustration-container">
+  
+  
+  <% if (doorTypeSelection === 'double') { %>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="173"
+      height="273"
+      viewBox="-10 -5 188 283"
+      fill="none"
+      id="double-door"
+    >
+      <% if (roughOpeningHeight > 0) { %>
+        <g class="height">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M67 56.25H0V55.75H67V56.25Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M68 58.25H14V57.75H68V58.25Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M1.05664 59.5L2.50002 57L3.94339 59.5L2.75002 59.5L2.75002 158L2.25002 158L2.25002 59.5L1.05664 59.5Z"
+            fill="black"
+          />
+          <text class="measurement-value" x="2" y="165"><%= roughOpeningHeight %></text>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M1.05664 269.5L2.50002 272L3.94339 269.5L2.75002 269.5L2.75002 171L2.25002 171L2.25002 269.5L1.05664 269.5Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M15.5566 61L17 58.5L18.4434 61L17.25 61L17.25 171.5L16.75 171.5L16.75 61L15.5566 61Z"
+            fill="black"
+          />
+          <text class="measurement-value" x="17" y="178.5"><%= finishedOpeningHeight %></text>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M16.75 267.5V185H17.25V267.5H18.4434L17 270L15.5566 267.5H16.75Z"
+            fill="black"
+          />
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M69 273H1V272.5H69V273Z" fill="black" />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M68 270.75H14V270.25H68V270.75Z"
+            fill="black"
+          />
+        </g>
+      <% } %>
+  
+      <% if (protectionType === 'bumper') { %>
+        <g class="bumper">
+          <g class="bumper-right">
+            <path
+              d="M152.808 237.852H156V270L152.808 269.468M152.808 237.852C152.808 237.852 147.591 237.852 146.891 237.852C146.19 237.852 140.898 238.703 135.109 238.703C129.319 238.703 128.585 238.86 126.803 238.703C125.021 238.547 125.317 238.337 124.623 238.085M152.808 237.852V269.468M124 237.852L124.856 237H127.737V238.761M124 237.852V266.594L124.623 266.806M124 237.852C124 237.852 124.214 237.639 124.623 238.085M124.623 266.806V238.085M124.623 266.806C124.623 266.806 125.324 267.658 125.946 268.084C126.569 268.51 128.282 268.935 129.606 269.148C130.929 269.361 131.63 269.468 132.954 269.468C134.277 269.468 137.236 269.468 137.236 269.468H140.74L147.436 269.148L152.418 269.468H152.808"
+              stroke="black"
+              stroke-width="0.5"
+            />
+            <circle
+              cx="0.685119"
+              cy="0.685119"
+              r="0.685119"
+              transform="matrix(-1 0 0 1 155.371 241)"
+              fill="black"
+            />
+            <circle
+              cx="0.685119"
+              cy="0.685119"
+              r="0.685119"
+              transform="matrix(-1 0 0 1 155.371 253.331)"
+              fill="black"
+            />
+            <circle
+              cx="0.685119"
+              cy="0.685119"
+              r="0.685119"
+              transform="matrix(-1 0 0 1 155.371 265.665)"
+              fill="black"
+            />
+          </g>
+          <g class="bumper-left">
+            <path
+              d="M86.1922 237.852H83V270L86.1922 269.468M86.1922 237.852C86.1922 237.852 91.4088 237.852 92.1095 237.852C92.8102 237.852 98.1022 238.703 103.891 238.703C109.681 238.703 110.415 238.86 112.197 238.703C113.979 238.547 113.683 238.337 114.377 238.085M86.1922 237.852V269.468M115 237.852L114.144 237H111.263V238.761M115 237.852V266.594L114.377 266.806M115 237.852C115 237.852 114.786 237.639 114.377 238.085M114.377 266.806V238.085M114.377 266.806C114.377 266.806 113.676 267.658 113.054 268.084C112.431 268.51 110.718 268.935 109.394 269.148C108.071 269.361 107.37 269.468 106.046 269.468C104.723 269.468 101.764 269.468 101.764 269.468H98.2603L91.5645 269.148L86.5815 269.468H86.1922"
+              stroke="black"
+              stroke-width="0.5"
+            />
+            <circle cx="84.6851" cy="241.685" r="0.685119" fill="black" />
+            <circle cx="84.6851" cy="254.016" r="0.685119" fill="black" />
+            <circle cx="84.6851" cy="266.35" r="0.685119" fill="black" />
+          </g>
+          <% if (bumperType === 'yes') { %>
+            <g class="aluminum-strip">
+              <text class="measurement-value" x="148.5" y="230">20</text>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M98 188.75H88V188.25H98V188.75Z"
+                fill="black"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M118.5 190.25H71V189.75H118.5V190.25Z"
+                fill="black"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M118.441 187.5H70.5V187H118.441V187.5Z"
+                fill="black"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M168.5 190.25H120V189.75H168.5V190.25Z"
+                fill="black"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M151 188.75H140.5V188.25H151V188.75Z"
+                fill="black"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M90.25 267V236H90.75V267H91.9434L90.5 269.5L89.0566 267H90.25Z"
+                fill="black"
+              />
+              <text class="measurement-value" x="90.5" y="230">20</text>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M88.5566 191.5L90 189L91.4434 191.5H90.25V222.5H89.75V191.5H88.5566Z"
+                fill="black"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M147.057 191L148.5 188.5L149.943 191H148.75V222.5H148.25V191H147.057Z"
+                fill="black"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M148.24 270.319V236H148.76V270.319H150L148.5 273L147 270.319H148.24Z"
+                fill="black"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M168.5 190.25H120V189.75H168.5V190.25Z"
+                fill="black"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M151 188.75H140.5V188.25H151V188.75Z"
+                fill="black"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M168.766 187.5H120V187H168.766V187.5Z"
+                fill="black"
+              />
+            </g>
+          <% } %>
+        </g>
+      <% } %>
+  
+      <% if (windowType && windowType !== 'none') { %>
+        <g class="window">
+          <text class="measurement-value" x="99.25" y="116.75">
+            <%= customWindowHeight || 14 %>
+          </text>
+          <text class="measurement-value" x="149.25" y="116.75">
+            <%= customWindowHeight || 14 %>
+          </text>
+          <text class="measurement-value" x="146.5" y="90">
+            <%= customWindowWidth || 9 %>
+          </text>
+          <text class="measurement-value" x="95.5" y="90">
+            <%= customWindowWidth || 9 %>
+          </text>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M92 116.25H58V115.75H92V116.25Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M59.0566 119.5L60.5 117L61.9434 119.5H60.75V188H60.25V119.5H59.0566Z"
+            fill="black"
+          />
+          <text class="measurement-value" x="60" y="195">
+            <%= (finishedOpeningHeight < 75 ? (finishedOpeningHeight * 0.75).toFixed(2) : 60) %>
+          </text>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M60.25 267.5V201H60.75V267.5H61.9434L60.5 270L59.0566 267.5H60.25Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M110.24 270.465V201H110.76V270.465H112L110.5 273L109 270.465H110.24Z"
+            fill="black"
+          />
+          <text class="measurement-value" x="110.5" y="196.5">
+            <%= (finishedOpeningHeight < 75 ? (finishedOpeningHeight * 0.75).toFixed(2) : 60) %>
+          </text>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M109 118.622L110.5 116L112 118.622L110.76 118.622L111.02 191L110.24 191L110.24 118.622L109 118.622Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M141.5 116.25H107.5V115.75H141.5V116.25Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M152.5 98.5H139.5C136.462 98.5 134 100.962 134 104V128C134 131.038 136.462 133.5 139.5 133.5H152.5C155.538 133.5 158 131.038 158 128V104C158 100.962 155.538 98.5 152.5 98.5ZM139.5 98C136.186 98 133.5 100.686 133.5 104V128C133.5 131.314 136.186 134 139.5 134H152.5C155.814 134 158.5 131.314 158.5 128V104C158.5 100.686 155.814 98 152.5 98H139.5Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M148.057 101L149.5 98.5L150.943 101H149.75V112.5H149.25V101H148.057Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M149.25 131L149.25 120.5L149.75 120.5L149.75 131L150.943 131L149.5 133.5L148.057 131L149.25 131Z"
+            fill="black"
+          />
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M134 96V87H134.5V96H134Z" fill="black" />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M136.75 90.9434L134.25 89.5L136.75 88.0566V89.25H141.25V89.75H136.75V90.9434Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M158.5 96V87H158V96H158.5Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M155.75 90.9434L158.25 89.5L155.75 88.0566V89.25H151.25V89.75H155.75V90.9434Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M101.5 98.5H88.5C85.4624 98.5 83 100.962 83 104V128C83 131.038 85.4624 133.5 88.5 133.5H101.5C104.538 133.5 107 131.038 107 128V104C107 100.962 104.538 98.5 101.5 98.5ZM88.5 98C85.1863 98 82.5 100.686 82.5 104V128C82.5 131.314 85.1863 134 88.5 134H101.5C104.814 134 107.5 131.314 107.5 128V104C107.5 100.686 104.814 98 101.5 98H88.5Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M98.0566 101L99.5 98.5L100.943 101H99.75V112.5H99.25V101H98.0566Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M99.25 131L99.25 120.5L99.75 120.5L99.75 131L100.943 131L99.5 133.5L98.0566 131L99.25 131Z"
+            fill="black"
+          />
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M83 96V87H83.5V96H83Z" fill="black" />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M85.75 90.9434L83.25 89.5L85.75 88.0566V89.25H90.25V89.75H85.75V90.9434Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M107.5 96V87H107V96H107.5Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M104.75 90.9434L107.25 89.5L104.75 88.0566V89.25H100.25V89.75H104.75V90.9434Z"
+            fill="black"
+          />
+        </g>
+      <% } %>
+  
+      <% if (roughOpeningWidth > 0) { %>
+        <g class="width">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M69.75 0V53.5H69.25V0H69.75ZM70.75 28V56.5H70.25V28H70.75Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M169.25 53V0H169.75V53H169.25Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M168.75 27V55.5H168.25V27H168.75Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M118.25 55.5V27H118.75V55.5H118.25Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M119.75 55.5V27H120.25V55.5H119.75Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M72.5 3.94339L70 2.50002L72.5 1.05664V2.25002H113V2.75002H72.5V3.94339Z"
+            fill="black"
+          />
+          <text class="measurement-value" x="119.5" y="3"><%= roughOpeningWidth %></text>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M166.5 1.05664L169 2.50002L166.5 3.94339V2.75002H126V2.25002H166.5V1.05664Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M73 31.4434L70.5 30L73 28.5566V29.75H82V30.25H73V31.4434Z"
+            fill="black"
+          />
+          <text class="measurement-value" x="95" y="30.5">
+            <%= finishedOpeningWidth / 2 %>
+          </text>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M116 28.5566L118.5 30L116 31.4434V30.25H106.5V29.75H116V28.5566Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M122.5 31.4434L120 30L122.5 28.5566V29.75H133V30.25H122.5V31.4434Z"
+            fill="black"
+          />
+          <text class="measurement-value" x="145" y="30.5">
+            <%= finishedOpeningWidth / 2 %>
+          </text>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M166 28.5566L168.5 30L166 31.4434V30.25H156.5V29.75H166V28.5566Z"
+            fill="black"
+          />
+        </g>
+      <% } %>
+  
+      <% if (jambGuardIncluded) { %>
+        <g class="jamb-guard <%= jambGuardType %>">
+          <g class="jamb-guard--left">
+            <path
+              d="M69.5 249.5H73V249V248V242H80.5V248H76.5V249.5"
+              stroke="black"
+              stroke-width="0.5"
+            />
+            <path
+              d="M69.5 244V272.5H77V249.5H75M75 249.5V248M75 249.5H73.5V248H78"
+              stroke="black"
+              stroke-width="0.5"
+            />
+            <path
+              d="M74.5 242.85C74.141 242.85 73.8496 243.141 73.8496 243.5C73.8496 243.859 74.141 244.15 74.5 244.15C74.859 244.15 75.1504 243.859 75.1504 243.5C75.1504 243.141 74.859 242.85 74.5 242.85Z"
+              fill="#D9D9D9"
+              stroke="black"
+              stroke-width="0.7"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="0.65"
+              transform="matrix(-1 0 0 1 80 242.5)"
+              fill="#D9D9D9"
+              stroke="black"
+              stroke-width="0.7"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="0.65"
+              transform="matrix(-1 0 0 1 78 245.5)"
+              fill="#D9D9D9"
+              stroke="black"
+              stroke-width="0.7"
+            />
+            <path d="M70 243.5V272.35" stroke="black" />
+          </g>
+          <g class="jamb-guard--right">
+            <path
+              d="M169.5 249.5H165.5V249V248V242H158V248H162V249.5"
+              stroke="black"
+              stroke-width="0.5"
+            />
+            <path
+              d="M169.5 245V272.5H161.5V249.5H163.5M163.5 249.5V248M163.5 249.5H165V248H160.5"
+              stroke="black"
+              stroke-width="0.5"
+            />
+            <path
+              d="M164 242.85C164.359 242.85 164.65 243.141 164.65 243.5C164.65 243.859 164.359 244.15 164 244.15C163.641 244.15 163.35 243.859 163.35 243.5C163.35 243.141 163.641 242.85 164 242.85Z"
+              fill="#D9D9D9"
+              stroke="black"
+              stroke-width="0.7"
+            />
+            <circle
+              cx="159.5"
+              cy="243.5"
+              r="0.65"
+              fill="#D9D9D9"
+              stroke="black"
+              stroke-width="0.7"
+            />
+            <circle
+              cx="161.5"
+              cy="246.5"
+              r="0.65"
+              fill="#D9D9D9"
+              stroke="black"
+              stroke-width="0.7"
+            />
+          </g>
+        </g>
+      <% } %>
+  
+      <% if (protectionType === 'kickplate') { %>
+        <g class="kickplates">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M171 238.5L172.443 236L173.887 238.5H172.693V244.5H172.193V238.5H171Z"
+            fill="black"
+          />
+          <text
+            class="measurement-value measurement-value--vertical"
+            x="174.5"
+            y="254.75"
+            transform-origin="174.5 254.75"
+          >
+            <%= kickplateHeight %>
+          </text>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M172.193 270.5V264H172.693V270.5H173.887L172.443 273L171 270.5H172.193Z"
+            fill="black"
+          />
+          <path d="M70.5 235.5H171.5" stroke="black" stroke-width="0.5" />
+        </g>
+      <% } %>
+  
+      <g class="double-door">
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M118.75 270.5H70V270H118.75V270.5Z"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M168.5 247L168 58.5H168.5L169 247H168.5Z"
+          fill="black"
+        />
+        <path d="M169 245V272.5" stroke="black" stroke-width="0.5" />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M168.5 57H152L152 55.75H169.75V66.5H168.5V57Z"
+          fill="black"
+        />
+        <path
+          d="M169.5 66.5001L169.501 245.5"
+          stroke="black"
+          stroke-width="0.5"
+          stroke-dasharray="1 1"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M70.5001 58L70.5001 272.5L70 272.5L70.0001 58L70.5001 58Z"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M118.5 58.25H70.25V57.75H118.5V58.25Z"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M118.25 270.5V57.7542L118.75 57.7544V270.5H118.25Z"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M87.9922 56.25H87.5V55.75H87.9922V56.25ZM89.9609 56.25H88.9766V55.75H89.9609V56.25ZM91.9297 56.25H90.9453V55.75H91.9297V56.25ZM93.8984 56.25H92.9141V55.75H93.8984V56.25ZM95.8672 56.25H94.8828V55.75H95.8672V56.25ZM97.8359 56.25H96.8516V55.75H97.8359V56.25ZM99.8047 56.25H98.8203V55.75H99.8047V56.25ZM101.773 56.25H100.789V55.75H101.773V56.25ZM103.742 56.25H102.758V55.75H103.742V56.25ZM105.711 56.25H104.727V55.75H105.711V56.25ZM107.68 56.25H106.695V55.75H107.68V56.25ZM109.648 56.25H108.664V55.75H109.648V56.25ZM111.617 56.25H110.633V55.75H111.617V56.25ZM113.586 56.25H112.602V55.75H113.586V56.25ZM115.555 56.25H114.57V55.75H115.555V56.25ZM117.523 56.25H116.539V55.75H117.523V56.25ZM119.492 56.25H118.508V55.75H119.492V56.25ZM121.461 56.25H120.477V55.75H121.461V56.25ZM123.43 56.25H122.445V55.75H123.43V56.25ZM125.398 56.25H124.414V55.75H125.398V56.25ZM127.367 56.25H126.383V55.75H127.367V56.25ZM129.336 56.25H128.352V55.75H129.336V56.25ZM131.305 56.25H130.32V55.75H131.305V56.25ZM133.273 56.25H132.289V55.75H133.273V56.25ZM135.242 56.25H134.258V55.75H135.242V56.25ZM137.211 56.25H136.227V55.75H137.211V56.25ZM139.18 56.25H138.195V55.75H139.18V56.25ZM141.148 56.25H140.164V55.75H141.148V56.25ZM143.117 56.25H142.133V55.75H143.117V56.25ZM145.086 56.25H144.102V55.75H145.086V56.25ZM147.055 56.25H146.07V55.75H147.055V56.25ZM149.023 56.25H148.039V55.75H149.023V56.25ZM150.5 56.25H150.008V55.75H150.5V56.25Z"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M69.25 66.5L69.25 66L69.75 66L69.75 66.5L69.25 66.5ZM69.25 68.5L69.25 67.5L69.75 67.5L69.75 68.5L69.25 68.5ZM69.25 70.5L69.25 69.5L69.75 69.5L69.75 70.5L69.25 70.5ZM69.25 72.5L69.25 71.5L69.75 71.5L69.75 72.5L69.25 72.5ZM69.25 74.5L69.25 73.5L69.75 73.5L69.75 74.5L69.25 74.5ZM69.25 76.5L69.25 75.5L69.75 75.5L69.75 76.5L69.25 76.5ZM69.25 78.5L69.25 77.5L69.75 77.5L69.75 78.5L69.25 78.5ZM69.25 80.5L69.25 79.5L69.75 79.5L69.75 80.5L69.25 80.5ZM69.25 82.5L69.25 81.5L69.75 81.5L69.75 82.5L69.25 82.5ZM69.25 84.5L69.25 83.5L69.75 83.5L69.75 84.5L69.25 84.5ZM69.25 86.5L69.25 85.5L69.75 85.5L69.75 86.5L69.25 86.5ZM69.25 88.5L69.25 87.5L69.75 87.5L69.75 88.5L69.25 88.5ZM69.25 90.5L69.25 89.5L69.75 89.5L69.75 90.5L69.25 90.5ZM69.25 92.5L69.25 91.5L69.75 91.5L69.75 92.5L69.25 92.5ZM69.25 94.5L69.25 93.5L69.75 93.5L69.75 94.5L69.25 94.5ZM69.25 96.5L69.25 95.5L69.75 95.5L69.75 96.5L69.25 96.5ZM69.25 98.5L69.25 97.5L69.75 97.5L69.75 98.5L69.25 98.5ZM69.25 100.5L69.25 99.5L69.75 99.5L69.75 100.5L69.25 100.5ZM69.25 102.5L69.25 101.5L69.75 101.5L69.75 102.5L69.25 102.5ZM69.25 104.5L69.25 103.5L69.75 103.5L69.75 104.5L69.25 104.5ZM69.25 106.5L69.25 105.5L69.75 105.5L69.75 106.5L69.25 106.5ZM69.25 108.5L69.25 107.5L69.75 107.5L69.75 108.5L69.25 108.5ZM69.25 110.5L69.25 109.5L69.75 109.5L69.75 110.5L69.25 110.5ZM69.25 112.5L69.25 111.5L69.75 111.5L69.75 112.5L69.25 112.5ZM69.25 114.5L69.25 113.5L69.75 113.5L69.75 114.5L69.25 114.5ZM69.25 116.5L69.25 115.5L69.75 115.5L69.75 116.5L69.25 116.5ZM69.25 118.5L69.25 117.5L69.75 117.5L69.75 118.5L69.25 118.5ZM69.25 120.5L69.25 119.5L69.75 119.5L69.75 120.5L69.25 120.5ZM69.25 122.5L69.25 121.5L69.75 121.5L69.75 122.5L69.25 122.5ZM69.25 124.5L69.25 123.5L69.75 123.5L69.75 124.5L69.25 124.5ZM69.25 126.5L69.25 125.5L69.75 125.5L69.75 126.5L69.25 126.5ZM69.25 128.5L69.25 127.5L69.75 127.5L69.75 128.5L69.25 128.5ZM69.25 130.5L69.25 129.5L69.75 129.5L69.75 130.5L69.25 130.5ZM69.25 132.5L69.25 131.5L69.75 131.5L69.75 132.5L69.25 132.5ZM69.25 134.5L69.25 133.5L69.75 133.5L69.75 134.5L69.25 134.5ZM69.25 136.5L69.25 135.5L69.75 135.5L69.75 136.5L69.25 136.5ZM69.25 138.5L69.25 137.5L69.75 137.5L69.75 138.5L69.25 138.5ZM69.25 140.5L69.25 139.5L69.75 139.5L69.75 140.5L69.25 140.5ZM69.25 142.5L69.25 141.5L69.75 141.5L69.75 142.5L69.25 142.5ZM69.25 144.5L69.25 143.5L69.75 143.5L69.75 144.5L69.25 144.5ZM69.25 146.5L69.25 145.5L69.75 145.5L69.75 146.5L69.25 146.5ZM69.25 148.5L69.25 147.5L69.75 147.5L69.75 148.5L69.25 148.5ZM69.25 150.5L69.25 149.5L69.75 149.5L69.75 150.5L69.25 150.5ZM69.25 152.5L69.25 151.5L69.75 151.5L69.75 152.5L69.25 152.5ZM69.25 154.5L69.25 153.5L69.75 153.5L69.75 154.5L69.25 154.5ZM69.25 156.5L69.25 155.5L69.75 155.5L69.75 156.5L69.25 156.5ZM69.25 158.5L69.25 157.5L69.75 157.5L69.75 158.5L69.25 158.5ZM69.25 160.5L69.25 159.5L69.75 159.5L69.75 160.5L69.25 160.5ZM69.25 162.5L69.25 161.5L69.75 161.5L69.75 162.5L69.25 162.5ZM69.25 164.5L69.25 163.5L69.75 163.5L69.75 164.5L69.25 164.5ZM69.25 166.5L69.25 165.5L69.75 165.5L69.75 166.5L69.25 166.5ZM69.25 168.5L69.25 167.5L69.75 167.5L69.75 168.5L69.25 168.5ZM69.25 170.5L69.25 169.5L69.75 169.5L69.75 170.5L69.25 170.5ZM69.25 172.5L69.25 171.5L69.75 171.5L69.75 172.5L69.25 172.5ZM69.25 174.5L69.25 173.5L69.75 173.5L69.75 174.5L69.25 174.5ZM69.25 176.5L69.25 175.5L69.75 175.5L69.75 176.5L69.25 176.5ZM69.25 178.5L69.25 177.5L69.75 177.5L69.75 178.5L69.25 178.5ZM69.25 180.5L69.25 179.5L69.75 179.5L69.75 180.5L69.25 180.5ZM69.25 182.5L69.25 181.5L69.75 181.5L69.75 182.5L69.25 182.5ZM69.25 184.5L69.25 183.5L69.75 183.5L69.75 184.5L69.25 184.5ZM69.25 186.5L69.25 185.5L69.75 185.5L69.75 186.5L69.25 186.5ZM69.25 188.5L69.25 187.5L69.75 187.5L69.75 188.5L69.25 188.5ZM69.25 190.5L69.25 189.5L69.75 189.5L69.75 190.5L69.25 190.5ZM69.25 192.5L69.25 191.5L69.75 191.5L69.75 192.5L69.25 192.5ZM69.25 194.5L69.25 193.5L69.75 193.5L69.75 194.5L69.25 194.5ZM69.25 196.5L69.25 195.5L69.75 195.5L69.75 196.5L69.25 196.5ZM69.25 198.5L69.25 197.5L69.75 197.5L69.75 198.5L69.25 198.5ZM69.25 200.5L69.25 199.5L69.75 199.5L69.75 200.5L69.25 200.5ZM69.25 202.5L69.25 201.5L69.75 201.5L69.75 202.5L69.25 202.5ZM69.25 204.5L69.25 203.5L69.75 203.5L69.75 204.5L69.25 204.5ZM69.25 206.5L69.25 205.5L69.75 205.5L69.75 206.5L69.25 206.5ZM69.25 208.5L69.25 207.5L69.75 207.5L69.75 208.5L69.25 208.5ZM69.25 210.5L69.25 209.5L69.75 209.5L69.75 210.5L69.25 210.5ZM69.25 212.5L69.25 211.5L69.75 211.5L69.75 212.5L69.25 212.5ZM69.25 214.5L69.25 213.5L69.75 213.5L69.75 214.5L69.25 214.5ZM69.25 216.5L69.25 215.5L69.75 215.5L69.75 216.5L69.25 216.5ZM69.25 218.5L69.25 217.5L69.75 217.5L69.75 218.5L69.25 218.5ZM69.25 220.5L69.25 219.5L69.75 219.5L69.75 220.5L69.25 220.5ZM69.25 222.5L69.25 221.5L69.75 221.5L69.75 222.5L69.25 222.5ZM69.25 224.5L69.25 223.5L69.75 223.5L69.75 224.5L69.25 224.5ZM69.25 226.5L69.25 225.5L69.75 225.5L69.75 226.5L69.25 226.5ZM69.25 228.5L69.25 227.5L69.75 227.5L69.75 228.5L69.25 228.5ZM69.25 230.5L69.25 229.5L69.75 229.5L69.75 230.5L69.25 230.5ZM69.25 232.5L69.25 231.5L69.75 231.5L69.75 232.5L69.25 232.5ZM69.25 234.5L69.25 233.5L69.75 233.5L69.75 234.5L69.25 234.5ZM69.25 236.5L69.25 235.5L69.75 235.5L69.75 236.5L69.25 236.5ZM69.25 238.5L69.25 237.5L69.75 237.5L69.75 238.5L69.25 238.5ZM69.25 240.5L69.25 239.5L69.75 239.5L69.75 240.5L69.25 240.5ZM69.25 242.5L69.25 241.5L69.75 241.5L69.75 242.5L69.25 242.5ZM69.25 244L69.25 243.5L69.75 243.5L69.75 244L69.25 244Z"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M69.25 56.25H86.5V57H70.5V66H69.25V56.25Z"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M77.75 58V56.5H78.25V58H77.75Z"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M80.25 58V56.5H80.75V58H80.25Z"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M73.25 57.75H86.75V67.75H73.25V57.75ZM73.75 58.25V67.25H86.25V58.25H73.75Z"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M157.25 58V56H157.75V58H157.25Z"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M159.75 58V56H160.25V58H159.75Z"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M153 58H166.5V68H153V58ZM153.5 58.5V67.5H166V58.5H153.5Z"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M78 272.75H77.5V272.25H78V272.75ZM80 272.75H79V272.25H80V272.75ZM82 272.75H81V272.25H82V272.75ZM84 272.75H83V272.25H84V272.75ZM86 272.75H85V272.25H86V272.75ZM88 272.75H87V272.25H88V272.75ZM90 272.75H89V272.25H90V272.75ZM92 272.75H91V272.25H92V272.75ZM94 272.75H93V272.25H94V272.75ZM96 272.75H95V272.25H96V272.75ZM98 272.75H97V272.25H98V272.75ZM100 272.75H99V272.25H100V272.75ZM102 272.75H101V272.25H102V272.75ZM104 272.75H103V272.25H104V272.75ZM106 272.75H105V272.25H106V272.75ZM108 272.75H107V272.25H108V272.75ZM110 272.75H109V272.25H110V272.75ZM112 272.75H111V272.25H112V272.75ZM114 272.75H113V272.25H114V272.75ZM116 272.75H115V272.25H116V272.75ZM118 272.75H117V272.25H118V272.75ZM120 272.75H119V272.25H120V272.75ZM122 272.75H121V272.25H122V272.75ZM124 272.75H123V272.25H124V272.75ZM126 272.75H125V272.25H126V272.75ZM128 272.75H127V272.25H128V272.75ZM130 272.75H129V272.25H130V272.75ZM132 272.75H131V272.25H132V272.75ZM134 272.75H133V272.25H134V272.75ZM136 272.75H135V272.25H136V272.75ZM138 272.75H137V272.25H138V272.75ZM140 272.75H139V272.25H140V272.75ZM142 272.75H141V272.25H142V272.75ZM144 272.75H143V272.25H144V272.75ZM146 272.75H145V272.25H146V272.75ZM148 272.75H147V272.25H148V272.75ZM150 272.75H149V272.25H150V272.75ZM152 272.75H151V272.25H152V272.75ZM154 272.75H153V272.25H154V272.75ZM156 272.75H155V272.25H156V272.75ZM158 272.75H157V272.25H158V272.75ZM160 272.75H159V272.25H160V272.75ZM161.5 272.75H161V272.25H161.5V272.75Z"
+          fill="black"
+        />
+        <path d="M169 58V58.5H120V58H169Z" fill="black" />
+        <path d="M120 58V270.301H169" stroke="black" stroke-width="0.5" />
+      </g>
+    </svg> 
+  <% } else if (doorTypeSelection === 'single') { %>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="190"
+      height="274"
+      viewBox="0 0 173 274"
+      fill="none"
+      id="single-door"
+    >
+      <% if (protectionType === 'bumper') { %>
+        <g class="bumper">
+          <path
+            d="M148.718 237.852H156V270L148.718 269.468M148.718 237.852C148.718 237.852 136.818 237.852 135.219 237.852C133.62 237.852 121.548 238.703 108.341 238.703C95.1348 238.703 93.4585 238.86 89.3942 238.703C85.3298 238.547 86.0038 238.337 84.4209 238.085M148.718 237.852V269.468M83 237.852L84.9538 237H91.5255V238.761M83 237.852V266.594L84.4209 266.806M83 237.852C83 237.852 83.4878 237.639 84.4209 238.085M84.4209 266.806V238.085M84.4209 266.806C84.4209 266.806 86.0195 267.658 87.4404 268.084C88.8613 268.51 92.7689 268.935 95.7883 269.148C98.8078 269.361 100.406 269.468 103.426 269.468C106.445 269.468 113.195 269.468 113.195 269.468H121.187L136.462 269.148L147.83 269.468H148.718"
+            stroke="black"
+            stroke-width="0.5"
+          />
+          <circle
+            cx="0.685119"
+            cy="0.685119"
+            r="0.685119"
+            transform="matrix(-1 0 0 1 153.371 241)"
+            fill="black"
+          />
+          <circle
+            cx="0.685119"
+            cy="0.685119"
+            r="0.685119"
+            transform="matrix(-1 0 0 1 153.371 253.331)"
+            fill="black"
+          />
+          <circle
+            cx="0.685119"
+            cy="0.685119"
+            r="0.685119"
+            transform="matrix(-1 0 0 1 153.371 265.665)"
+            fill="black"
+          />
+          <% if (bumperType === 'yes') { %>
+            <g class="aluminum-strip">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M168.5 192.5H70V192H168.5V192.5Z"
+                fill="black"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M137.5 191.5H127V191H137.5V191.5Z"
+                fill="black"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M168.5 190.25H70V189.75H168.5V190.25Z"
+                fill="black"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M131.057 193.5L132.5 191L133.943 193.5H132.75V225H132.25V193.5H131.057Z"
+                fill="black"
+              />
+              <text
+                class="measurement-value"
+                x="132.5"
+                y="232.5"
+                style="fill: black; font-size: 8px; text-anchor: middle"
+              >
+                20
+              </text>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M132.24 270.319V236H132.76V270.319H134L132.5 273L131 270.319H132.24Z"
+                fill="black"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M78 272.75H77.5V272.25H78V272.75ZM80 272.75H79V272.25H80V272.75ZM82 272.75H81V272.25H82V272.75ZM84 272.75H83V272.25H84V272.75ZM86 272.75H85V272.25H86V272.75ZM88 272.75H87V272.25H88V272.75ZM90 272.75H89V272.25H90V272.75ZM92 272.75H91V272.25H92V272.75ZM94 272.75H93V272.25H94V272.75ZM96 272.75H95V272.25H96V272.75ZM98 272.75H97V272.25H98V272.75ZM100 272.75H99V272.25H100V272.75ZM102 272.75H101V272.25H102V272.75ZM104 272.75H103V272.25H104V272.75ZM106 272.75H105V272.25H106V272.75ZM108 272.75H107V272.25H108V272.75ZM110 272.75H109V272.25H110V272.75ZM112 272.75H111V272.25H112V272.75ZM114 272.75H113V272.25H114V272.75ZM116 272.75H115V272.25H116V272.75ZM118 272.75H117V272.25H118V272.75ZM120 272.75H119V272.25H120V272.75ZM122 272.75H121V272.25H122V272.75ZM124 272.75H123V272.25H124V272.75ZM126 272.75H125V272.25H126V272.75ZM128 272.75H127V272.25H128V272.75ZM130 272.75H129V272.25H130V272.75ZM132 272.75H131V272.25H132V272.75ZM134 272.75H133V272.25H134V272.75ZM136 272.75H135V272.25H136V272.75ZM138 272.75H137V272.25H138V272.75ZM140 272.75H139V272.25H140V272.75ZM142 272.75H141V272.25H142V272.75ZM144 272.75H143V272.25H144V272.75ZM146 272.75H145V272.25H146V272.75ZM148 272.75H147V272.25H148V272.75ZM150 272.75H149V272.25H150V272.75ZM152 272.75H151V272.25H152V272.75ZM154 272.75H153V272.25H154V272.75ZM156 272.75H155V272.25H156V272.75ZM158 272.75H157V272.25H158V272.75ZM160 272.75H159V272.25H160V272.75ZM161.5 272.75H161V272.25H161.5V272.75Z"
+                fill="black"
+              />
+            </g>
+          <% } %>
+        </g>
+      <% } %>
+  
+      <% if (jambGuardIncluded) { %>
+        <g class="jamb-guard <%= jambGuardType %>">
+          <% if (singleDoorHingeLocation === 'left') { %>
+            <g class="jamb-guard--left">
+              <path
+                d="M69.5 249.5H73V249V248V242H80.5V248H76.5V249.5"
+                stroke="black"
+                stroke-width="0.5"
+              />
+              <path
+                d="M69.5 244V272.5H77V249.5H75M75 249.5V248M75 249.5H73.5V248H78"
+                stroke="black"
+                stroke-width="0.5"
+              />
+              <path
+                d="M74.5 242.85C74.141 242.85 73.8496 243.141 73.8496 243.5C73.8496 243.859 74.141 244.15 74.5 244.15C74.859 244.15 75.1504 243.859 75.1504 243.5C75.1504 243.141 74.859 242.85 74.5 242.85Z"
+                fill="#D9D9D9"
+                stroke="black"
+                stroke-width="0.7"
+              />
+              <circle
+                cx="1"
+                cy="1"
+                r="0.65"
+                transform="matrix(-1 0 0 1 80 242.5)"
+                fill="#D9D9D9"
+                stroke="black"
+                stroke-width="0.7"
+              />
+              <circle
+                cx="1"
+                cy="1"
+                r="0.65"
+                transform="matrix(-1 0 0 1 78 245.5)"
+                fill="#D9D9D9"
+                stroke="black"
+                stroke-width="0.7"
+              />
+            </g>
+          <% } else if (singleDoorHingeLocation === 'right') { %>
+            <g class="jamb-guard--right">
+              <path
+                d="M169.5 249.5H165.5V249V248V242H158V248H162V249.5"
+                stroke="black"
+                stroke-width="0.5"
+              />
+              <path
+                d="M169.5 245V272.5H161.5V249.5H163.5M163.5 249.5V248M163.5 249.5H165V248H160.5"
+                stroke="black"
+                stroke-width="0.5"
+              />
+              <path
+                d="M164 242.85C164.359 242.85 164.65 243.141 164.65 243.5C164.65 243.859 164.359 244.15 164 244.15C163.641 244.15 163.35 243.859 163.35 243.5C163.35 243.141 163.641 242.85 164 242.85Z"
+                fill="#D9D9D9"
+                stroke="black"
+                stroke-width="0.7"
+              />
+              <circle cx="159.5" cy="243.5" r="0.65" fill="#D9D9D9" stroke="black" stroke-width="0.7" />
+              <circle cx="161.5" cy="246.5" r="0.65" fill="#D9D9D9" stroke="black" stroke-width="0.7" />
+            </g>
+          <% } %>
+        </g>
+      <% } %>
+  
+      <g class="height">
+        <% if (finishedOpeningHeight > 0) { %>
+          <g class="height-finished">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M68 58.25H14V57.75H68V58.25Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M15.5566 61L17 58.5L18.4434 61L17.25 61L17.25 171.5L16.75 171.5L16.75 61L15.5566 61Z"
+              fill="black"
+            />
+            <text
+              class="measurement-value"
+              x="16.5"
+              y="181"
+              style="fill: black; font-size: 8px; text-anchor: middle"
+            >
+              <%= finishedOpeningHeight %>
+            </text>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M16.75 267.5V185H17.25V267.5H18.4434L17 270L15.5566 267.5H16.75Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M68 270.75H14V270.25H68V270.75Z"
+              fill="black"
+            />
+          </g>
+        <% } %>
+        <% if (roughOpeningHeight > 0) { %>
+          <g class="height-rough">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M69 273H1V272.5H69V273Z"
+              fill="black"
+            />
+            <text class="measurement-value" x="-2" y="167.5" style="fill: black; font-size: 8px">
+              <%= roughOpeningHeight %>
+            </text>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M67 56.25H0V55.75H67V56.25Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M1.05664 59.5L2.50002 57L3.94339 59.5L2.75002 59.5L2.75002 158L2.25002 158L2.25002 59.5L1.05664 59.5Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M1.05664 269.5L2.50002 272L3.94339 269.5L2.75002 269.5L2.75002 171L2.25002 171L2.25002 269.5L1.05664 269.5Z"
+              fill="black"
+            />
+          </g>
+        <% } %>
+      </g>
+  
+      <% if (windowType && windowType !== 'none') { %>
+        <g class="window">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M59.0566 119.5L60.5 117L61.9434 119.5H60.75V188H60.25V119.5H59.0566Z"
+            fill="black"
+          />
+          <text
+            class="measurement-value"
+            x="60.5"
+            y="197.5"
+            style="fill: black; font-size: 8px; text-anchor: middle"
+          >
+            <%= (finishedOpeningHeight < 75 ? (finishedOpeningHeight * 0.75).toFixed(2) : 60) %>
+          </text>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M60.25 267.5V201H60.75V267.5H61.9434L60.5 270L59.0566 267.5H60.25Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M107 116.5H58V116H107V116.5Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M89.2402 271.465V202H89.7598V271.465H91L89.5 274L88 271.465H89.2402Z"
+            fill="black"
+          />
+          <text
+            class="measurement-value"
+            x="89.5"
+            y="199.5"
+            style="fill: black; font-size: 8px; text-anchor: middle"
+          >
+            <%= (finishedOpeningHeight < 75 ? (finishedOpeningHeight * 0.75).toFixed(2) : 60) %>
+          </text>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M88 119.622L89.5 117L91 119.622L89.7598 119.622L90.0196 192L89.2402 192L89.2402 119.622L88 119.622Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M125 98.5H112C108.962 98.5 106.5 100.962 106.5 104V128C106.5 131.038 108.962 133.5 112 133.5H125C128.038 133.5 130.5 131.038 130.5 128V104C130.5 100.962 128.038 98.5 125 98.5ZM112 98C108.686 98 106 100.686 106 104V128C106 131.314 108.686 134 112 134H125C128.314 134 131 131.314 131 128V104C131 100.686 128.314 98 125 98H112Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M120.557 101L122 98.5L123.443 101H122.25V112.5H121.75V101H120.557Z"
+            fill="black"
+          />
+          <text
+            class="measurement-value"
+            x="122"
+            y="119"
+            style="fill: black; font-size: 8px; text-anchor: middle"
+          >
+            <%= customWindowHeight || 14 %>
+          </text>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M121.75 131L121.75 120.5L122.25 120.5L122.25 131L123.443 131L122 133.5L120.557 131L121.75 131Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M106.5 96V87H107V96H106.5Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M109.25 90.9434L106.75 89.5L109.25 88.0566V89.25H113.75V89.75H109.25V90.9434Z"
+            fill="black"
+          />
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M131 96V87H130.5V96H131Z" fill="black" />
+          <text
+            class="measurement-value"
+            x="119"
+            y="92"
+            style="fill: black; font-size: 8px; text-anchor: middle"
+          >
+            <%= customWindowWidth || 9 %>
+          </text>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M128.25 90.9434L130.75 89.5L128.25 88.0566V89.25H123.75V89.75H128.25V90.9434Z"
+            fill="black"
+          />
+        </g>
+      <% } %>
+
+      <% if (roughOpeningWidth > 0) { %>
+        <g class="width">
+          <g class="width-rough">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M69.75 0V53.5H69.25V0H69.75ZM70.75 28V56.5H70.25V28H70.75Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M72.5 3.94339L70 2.50002L72.5 1.05664V2.25002H113V2.75002H72.5V3.94339Z"
+              fill="black"
+            />
+            <text
+              class="measurement-value"
+              x="119"
+              y="6.5"
+              style="fill: black; font-size: 8px; text-anchor: middle"
+            >
+              <%= roughOpeningWidth %>
+            </text>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M166.5 1.05664L169 2.50002L166.5 3.94339V2.75002H126V2.25002H166.5V1.05664Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M169.25 53V0H169.75V53H169.25Z"
+              fill="black"
+            />
+          </g>
+          <% if (finishedOpeningWidth > 0) { %>
+            <g class="width-finished">
+              <line
+                data-v-49dae664=""
+                x1="69.5"
+                y1="28.5"
+                x2="69.5"
+                y2="57.5"
+                stroke="black"
+                stroke-width="0.6"
+              />
+              <path
+                data-v-49dae664=""
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M168.75 27V55.5H168.25V27H168.75Z"
+                fill="black"
+              />
+              <path
+                xmlns="http://www.w3.org/2000/svg"
+                d="M71.5 29L74 30.4434V27.5566L71.5 29ZM73.75 29V29.25H111.5V29V28.75H73.75V29Z"
+                fill="black"
+              />
+              <text data-v-49dae664="" class="measurement-value" x="120" y="30.5">
+                <%= finishedOpeningWidth %>
+              </text>
+              <path
+                xmlns="http://www.w3.org/2000/svg"
+                d="M168 29L165.5 30.4434V27.5566L168 29ZM165.75 29V29.25H128V29V28.75H165.75V29Z"
+                fill="black"
+              />
+            </g>
+          <% } %>
+        </g>
+      <% } %>
+  
+      <g class="kickplate">
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M170 238.5L171.443 236L172.887 238.5H171.693V244.5H171.193V238.5H170Z"
+          fill="black"
+        />
+        <text
+          class="measurement-value"
+          x="173.5"
+          y="257.5"
+          style="fill: black; font-size: 8px; text-anchor: middle; transform: rotate(270deg)"
+          transform-origin="173.5 255.5"
+        >
+          <%= kickplateHeight %>
+        </text>
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M171.193 270.5V264H171.693V270.5H172.887L171.443 273L170 270.5H171.193Z"
+          fill="black"
+        />
+        <path d="M70.5 235.5H171.5" stroke="black" stroke-width="0.5" />
+      </g>
+      <!-- if singleDoorHingeLocation is left, render left hinge -->
+      <% if (singleDoorHingeLocation === 'left') { %>
+        <g class="left-hinge">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M77.75 58V56.5H78.25V58H77.75Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M80.25 58V56.5H80.75V58H80.25Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M73.25 57.75H86.75V67.75H73.25V57.75ZM73.75 58.25V67.25H86.25V58.25H73.75Z"
+            fill="black"
+          />
+        </g>
+      <% } %>
+  
+      <!-- if singleDoorHingeLocation is right, render right hinge -->
+      <% if (singleDoorHingeLocation === 'right') { %>
+        <g class="right-hinge">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M158.25 58V56H158.75V58H158.25Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M160.75 58V56H161.25V58H160.75Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M154 58H167.5V68H154V58ZM154.5 58.5V67.5H167V58.5H154.5Z"
+            fill="black"
+          />
+        </g>
+      <% } %>
+  
+      <!-- if openingType is rough, render rough opening -->
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M168.5 57H152L152 55.75H169.75V66.5H168.5V57Z"
+        fill="black"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M168.5 247L168 67H168.5L169 247H168.5Z"
+        fill="black"
+      />
+      <path d="M169 245V272.5" stroke="black" stroke-width="0.5" />
+      <path
+        d="M169.5 66.5001L169.501 245.5"
+        stroke="black"
+        stroke-width="0.5"
+        stroke-dasharray="1 1"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M70.5001 58L70.5001 272.5L70 272.5L70.0001 58L70.5001 58Z"
+        fill="black"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M87.9922 56.25H87.5V55.75H87.9922V56.25ZM89.9609 56.25H88.9766V55.75H89.9609V56.25ZM91.9297 56.25H90.9453V55.75H91.9297V56.25ZM93.8984 56.25H92.9141V55.75H93.8984V56.25ZM95.8672 56.25H94.8828V55.75H95.8672V56.25ZM97.8359 56.25H96.8516V55.75H97.8359V56.25ZM99.8047 56.25H98.8203V55.75H99.8047V56.25ZM101.773 56.25H100.789V55.75H101.773V56.25ZM103.742 56.25H102.758V55.75H103.742V56.25ZM105.711 56.25H104.727V55.75H105.711V56.25ZM107.68 56.25H106.695V55.75H107.68V56.25ZM109.648 56.25H108.664V55.75H109.648V56.25ZM111.617 56.25H110.633V55.75H111.617V56.25ZM113.586 56.25H112.602V55.75H113.586V56.25ZM115.555 56.25H114.57V55.75H115.555V56.25ZM117.523 56.25H116.539V55.75H117.523V56.25ZM119.492 56.25H118.508V55.75H119.492V56.25ZM121.461 56.25H120.477V55.75H121.461V56.25ZM123.43 56.25H122.445V55.75H123.43V56.25ZM125.398 56.25H124.414V55.75H125.398V56.25ZM127.367 56.25H126.383V55.75H127.367V56.25ZM129.336 56.25H128.352V55.75H129.336V56.25ZM131.305 56.25H130.32V55.75H131.305V56.25ZM133.273 56.25H132.289V55.75H133.273V56.25ZM135.242 56.25H134.258V55.75H135.242V56.25ZM137.211 56.25H136.227V55.75H137.211V56.25ZM139.18 56.25H138.195V55.75H139.18V56.25ZM141.148 56.25H140.164V55.75H141.148V56.25ZM143.117 56.25H142.133V55.75H143.117V56.25ZM145.086 56.25H144.102V55.75H145.086V56.25ZM147.055 56.25H146.07V55.75H147.055V56.25ZM149.023 56.25H148.039V55.75H149.023V56.25ZM150.5 56.25H150.008V55.75H150.5V56.25Z"
+        fill="black"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M69.25 56.25H86.5V57H70.5V66H69.25V56.25Z"
+        fill="black"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M69.25 66.5L69.25 66L69.75 66L69.75 66.5L69.25 66.5ZM69.25 68.5L69.25 67.5L69.75 67.5L69.75 68.5L69.25 68.5ZM69.25 70.5L69.25 69.5L69.75 69.5L69.75 70.5L69.25 70.5ZM69.25 72.5L69.25 71.5L69.75 71.5L69.75 72.5L69.25 72.5ZM69.25 74.5L69.25 73.5L69.75 73.5L69.75 74.5L69.25 74.5ZM69.25 76.5L69.25 75.5L69.75 75.5L69.75 76.5L69.25 76.5ZM69.25 78.5L69.25 77.5L69.75 77.5L69.75 78.5L69.25 78.5ZM69.25 80.5L69.25 79.5L69.75 79.5L69.75 80.5L69.25 80.5ZM69.25 82.5L69.25 81.5L69.75 81.5L69.75 82.5L69.25 82.5ZM69.25 84.5L69.25 83.5L69.75 83.5L69.75 84.5L69.25 84.5ZM69.25 86.5L69.25 85.5L69.75 85.5L69.75 86.5L69.25 86.5ZM69.25 88.5L69.25 87.5L69.75 87.5L69.75 88.5L69.25 88.5ZM69.25 90.5L69.25 89.5L69.75 89.5L69.75 90.5L69.25 90.5ZM69.25 92.5L69.25 91.5L69.75 91.5L69.75 92.5L69.25 92.5ZM69.25 94.5L69.25 93.5L69.75 93.5L69.75 94.5L69.25 94.5ZM69.25 96.5L69.25 95.5L69.75 95.5L69.75 96.5L69.25 96.5ZM69.25 98.5L69.25 97.5L69.75 97.5L69.75 98.5L69.25 98.5ZM69.25 100.5L69.25 99.5L69.75 99.5L69.75 100.5L69.25 100.5ZM69.25 102.5L69.25 101.5L69.75 101.5L69.75 102.5L69.25 102.5ZM69.25 104.5L69.25 103.5L69.75 103.5L69.75 104.5L69.25 104.5ZM69.25 106.5L69.25 105.5L69.75 105.5L69.75 106.5L69.25 106.5ZM69.25 108.5L69.25 107.5L69.75 107.5L69.75 108.5L69.25 108.5ZM69.25 110.5L69.25 109.5L69.75 109.5L69.75 110.5L69.25 110.5ZM69.25 112.5L69.25 111.5L69.75 111.5L69.75 112.5L69.25 112.5ZM69.25 114.5L69.25 113.5L69.75 113.5L69.75 114.5L69.25 114.5ZM69.25 116.5L69.25 115.5L69.75 115.5L69.75 116.5L69.25 116.5ZM69.25 118.5L69.25 117.5L69.75 117.5L69.75 118.5L69.25 118.5ZM69.25 120.5L69.25 119.5L69.75 119.5L69.75 120.5L69.25 120.5ZM69.25 122.5L69.25 121.5L69.75 121.5L69.75 122.5L69.25 122.5ZM69.25 124.5L69.25 123.5L69.75 123.5L69.75 124.5L69.25 124.5ZM69.25 126.5L69.25 125.5L69.75 125.5L69.75 126.5L69.25 126.5ZM69.25 128.5L69.25 127.5L69.75 127.5L69.75 128.5L69.25 128.5ZM69.25 130.5L69.25 129.5L69.75 129.5L69.75 130.5L69.25 130.5ZM69.25 132.5L69.25 131.5L69.75 131.5L69.75 132.5L69.25 132.5ZM69.25 134.5L69.25 133.5L69.75 133.5L69.75 134.5L69.25 134.5ZM69.25 136.5L69.25 135.5L69.75 135.5L69.75 136.5L69.25 136.5ZM69.25 138.5L69.25 137.5L69.75 137.5L69.75 138.5L69.25 138.5ZM69.25 140.5L69.25 139.5L69.75 139.5L69.75 140.5L69.25 140.5ZM69.25 142.5L69.25 141.5L69.75 141.5L69.75 142.5L69.25 142.5ZM69.25 144.5L69.25 143.5L69.75 143.5L69.75 144.5L69.25 144.5ZM69.25 146.5L69.25 145.5L69.75 145.5L69.75 146.5L69.25 146.5ZM69.25 148.5L69.25 147.5L69.75 147.5L69.75 148.5L69.25 148.5ZM69.25 150.5L69.25 149.5L69.75 149.5L69.75 150.5L69.25 150.5ZM69.25 152.5L69.25 151.5L69.75 151.5L69.75 152.5L69.25 152.5ZM69.25 154.5L69.25 153.5L69.75 153.5L69.75 154.5L69.25 154.5ZM69.25 156.5L69.25 155.5L69.75 155.5L69.75 156.5L69.25 156.5ZM69.25 158.5L69.25 157.5L69.75 157.5L69.75 158.5L69.25 158.5ZM69.25 160.5L69.25 159.5L69.75 159.5L69.75 160.5L69.25 160.5ZM69.25 162.5L69.25 161.5L69.75 161.5L69.75 162.5L69.25 162.5ZM69.25 164.5L69.25 163.5L69.75 163.5L69.75 164.5L69.25 164.5ZM69.25 166.5L69.25 165.5L69.75 165.5L69.75 166.5L69.25 166.5ZM69.25 168.5L69.25 167.5L69.75 167.5L69.75 168.5L69.25 168.5ZM69.25 170.5L69.25 169.5L69.75 169.5L69.75 170.5L69.25 170.5ZM69.25 172.5L69.25 171.5L69.75 171.5L69.75 172.5L69.25 172.5ZM69.25 174.5L69.25 173.5L69.75 173.5L69.75 174.5L69.25 174.5ZM69.25 176.5L69.25 175.5L69.75 175.5L69.75 176.5L69.25 176.5ZM69.25 178.5L69.25 177.5L69.75 177.5L69.75 178.5L69.25 178.5ZM69.25 180.5L69.25 179.5L69.75 179.5L69.75 180.5L69.25 180.5ZM69.25 182.5L69.25 181.5L69.75 181.5L69.75 182.5L69.25 182.5ZM69.25 184.5L69.25 183.5L69.75 183.5L69.75 184.5L69.25 184.5ZM69.25 186.5L69.25 185.5L69.75 185.5L69.75 186.5L69.25 186.5ZM69.25 188.5L69.25 187.5L69.75 187.5L69.75 188.5L69.25 188.5ZM69.25 190.5L69.25 189.5L69.75 189.5L69.75 190.5L69.25 190.5ZM69.25 192.5L69.25 191.5L69.75 191.5L69.75 192.5L69.25 192.5ZM69.25 194.5L69.25 193.5L69.75 193.5L69.75 194.5L69.25 194.5ZM69.25 196.5L69.25 195.5L69.75 195.5L69.75 196.5L69.25 196.5ZM69.25 198.5L69.25 197.5L69.75 197.5L69.75 198.5L69.25 198.5ZM69.25 200.5L69.25 199.5L69.75 199.5L69.75 200.5L69.25 200.5ZM69.25 202.5L69.25 201.5L69.75 201.5L69.75 202.5L69.25 202.5ZM69.25 204.5L69.25 203.5L69.75 203.5L69.75 204.5L69.25 204.5ZM69.25 206.5L69.25 205.5L69.75 205.5L69.75 206.5L69.25 206.5ZM69.25 208.5L69.25 207.5L69.75 207.5L69.75 208.5L69.25 208.5ZM69.25 210.5L69.25 209.5L69.75 209.5L69.75 210.5L69.25 210.5ZM69.25 212.5L69.25 211.5L69.75 211.5L69.75 212.5L69.25 212.5ZM69.25 214.5L69.25 213.5L69.75 213.5L69.75 214.5L69.25 214.5ZM69.25 216.5L69.25 215.5L69.75 215.5L69.75 216.5L69.25 216.5ZM69.25 218.5L69.25 217.5L69.75 217.5L69.75 218.5L69.25 218.5ZM69.25 220.5L69.25 219.5L69.75 219.5L69.75 220.5L69.25 220.5ZM69.25 222.5L69.25 221.5L69.75 221.5L69.75 222.5L69.25 222.5ZM69.25 224.5L69.25 223.5L69.75 223.5L69.75 224.5L69.25 224.5ZM69.25 226.5L69.25 225.5L69.75 225.5L69.75 226.5L69.25 226.5ZM69.25 228.5L69.25 227.5L69.75 227.5L69.75 228.5L69.25 228.5ZM69.25 230.5L69.25 229.5L69.75 229.5L69.75 230.5L69.25 230.5ZM69.25 232.5L69.25 231.5L69.75 231.5L69.75 232.5L69.25 232.5ZM69.25 234.5L69.25 233.5L69.75 233.5L69.75 234.5L69.25 234.5ZM69.25 236.5L69.25 235.5L69.75 235.5L69.75 236.5L69.25 236.5ZM69.25 238.5L69.25 237.5L69.75 237.5L69.75 238.5L69.25 238.5ZM69.25 240.5L69.25 239.5L69.75 239.5L69.75 240.5L69.25 240.5ZM69.25 242.5L69.25 241.5L69.75 241.5L69.75 242.5L69.25 242.5ZM69.25 244L69.25 243.5L69.75 243.5L69.75 244L69.25 244Z"
+        fill="black"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M168.75 270.5H70V270H168.75V270.5Z"
+        fill="black"
+      />
+      <path d="M70 243.5V272.35" stroke="black" />
+      <path d="M70 58H154.5H169" stroke="black" stroke-width="0.5" />
+    </svg>
+  <% } %>
+  </div>
+</div>

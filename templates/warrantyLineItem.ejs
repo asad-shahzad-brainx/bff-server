@@ -1,0 +1,24 @@
+<div class="item-container">
+  <div class="item-header invert-colors">
+    <div class="item-header-cell">
+      <div class="item-header-label cell">LINE #</div>
+      <div class="item-header-value"><%= counter() %></div>
+    </div>
+    <div class="item-header-cell">
+      <div class="item-header-label cell">ITEM</div>
+      <div class="item-header-value"><%= lineItem ? lineItem.title : "Standard Warranty" %></div>
+    </div>
+    <div class="item-header-cell">
+      <div class="item-header-label cell">QTY</div>
+      <div class="item-header-value"><%= 1 %></div>
+    </div>
+    <div class="item-header-cell">
+      <div class="item-header-label cell">UNIT PRICE</div>
+      <div class="item-header-value"><%= lineItem ? Number(lineItem.originalUnitPriceWithCurrency.amount).toFixed(2) + " " + lineItem.originalUnitPriceWithCurrency.currencyCode : "N/A" %></div>
+    </div>
+    <div class="item-header-cell">
+      <div class="item-header-label cell">EXT. PRICE</div>
+      <div class="item-header-value"><%= lineItem ? Number(lineItem.originalUnitPriceWithCurrency.amount).toFixed(2) + " " + lineItem.originalUnitPriceWithCurrency.currencyCode : "N/A" %></div>
+    </div>
+  </div>
+</div>

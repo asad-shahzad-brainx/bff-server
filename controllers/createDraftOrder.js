@@ -31,11 +31,11 @@ const createDraftOrder = async (req, res) => {
     };
 
     const input = await generateDraftOrderInput(parsedBody, req.files);
-    return res.status(201).json({
-      status: "success",
-      message: "Draft order created successfully",
-      input,
-    });
+    // return res.status(201).json({
+    //   status: "success",
+    //   message: "Draft order created successfully",
+    //   input,
+    // });
 
     const { data, errors } = await client.request(draftOrderCreate, {
       variables: {
