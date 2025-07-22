@@ -328,8 +328,8 @@
         </g>
       <% } %>
   
-      <% if (roughOpeningWidth > 0) { %>
-        <g class="width">
+      <g class="width">
+        <% if (roughOpeningWidth > 0) { %>
           <g class="width-rough">
             <path
               fill-rule="evenodd"
@@ -363,50 +363,50 @@
               fill="black"
             />
           </g>
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M168.75 27V55.5H168.25V27H168.75Z"
-            fill="black"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M118.25 55.5V27H118.75V55.5H118.25Z"
-            fill="black"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M73 31.4434L70.5 30L73 28.5566V29.75H82V30.25H73V31.4434Z"
-            fill="black"
-          />
-          <text class="measurement-value" x="95" y="30.5">
-            <%= finishedOpeningWidth / 2 %>
-          </text>
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M116 28.5566L118.5 30L116 31.4434V30.25H106.5V29.75H116V28.5566Z"
-            fill="black"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M122.5 31.4434L120 30L122.5 28.5566V29.75H133V30.25H122.5V31.4434Z"
-            fill="black"
-          />
-          <text class="measurement-value" x="145" y="30.5">
-            <%= finishedOpeningWidth / 2 %>
-          </text>
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M166 28.5566L168.5 30L166 31.4434V30.25H156.5V29.75H166V28.5566Z"
-            fill="black"
-          />
-        </g>
-      <% } %>
+        <% } %>
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M168.75 27V55.5H168.25V27H168.75Z"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M118.25 55.5V27H118.75V55.5H118.25Z"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M73 31.4434L70.5 30L73 28.5566V29.75H82V30.25H73V31.4434Z"
+          fill="black"
+        />
+        <text class="measurement-value" x="95" y="30.5">
+          <%= finishedOpeningWidth / 2 %>
+        </text>
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M116 28.5566L118.5 30L116 31.4434V30.25H106.5V29.75H116V28.5566Z"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M122.5 31.4434L120 30L122.5 28.5566V29.75H133V30.25H122.5V31.4434Z"
+          fill="black"
+        />
+        <text class="measurement-value" x="145" y="30.5">
+          <%= finishedOpeningWidth / 2 %>
+        </text>
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M166 28.5566L168.5 30L166 31.4434V30.25H156.5V29.75H166V28.5566Z"
+          fill="black"
+        />
+      </g>
   
       <% if (jambGuardIncluded) { %>
         <g class="jamb-guard <%= jambGuardType %>">
@@ -944,8 +944,8 @@
         </g>
       <% } %>
 
-      <% if (roughOpeningWidth > 0) { %>
-        <g class="width">
+      <g class="width">
+        <% if (roughOpeningWidth > 0) { %>
           <g class="width-rough">
             <path
               fill-rule="evenodd"
@@ -980,41 +980,41 @@
               fill="black"
             />
           </g>
-          <% if (finishedOpeningWidth > 0) { %>
-            <g class="width-finished">
-              <line
-                data-v-49dae664=""
-                x1="69.5"
-                y1="28.5"
-                x2="69.5"
-                y2="57.5"
-                stroke="black"
-                stroke-width="0.6"
-              />
-              <path
-                data-v-49dae664=""
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M168.75 27V55.5H168.25V27H168.75Z"
-                fill="black"
-              />
-              <path
-                xmlns="http://www.w3.org/2000/svg"
-                d="M71.5 29L74 30.4434V27.5566L71.5 29ZM73.75 29V29.25H111.5V29V28.75H73.75V29Z"
-                fill="black"
-              />
-              <text data-v-49dae664="" class="measurement-value" x="120" y="30.5">
-                <%= finishedOpeningWidth %>
-              </text>
-              <path
-                xmlns="http://www.w3.org/2000/svg"
-                d="M168 29L165.5 30.4434V27.5566L168 29ZM165.75 29V29.25H128V29V28.75H165.75V29Z"
-                fill="black"
-              />
-            </g>
-          <% } %>
-        </g>
-      <% } %>
+        <% } %>
+        <% if (finishedOpeningWidth > 0) { %>
+          <g class="width-finished">
+            <line
+              data-v-49dae664=""
+              x1="69.5"
+              y1="28.5"
+              x2="69.5"
+              y2="57.5"
+              stroke="black"
+              stroke-width="0.6"
+            />
+            <path
+              data-v-49dae664=""
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M168.75 27V55.5H168.25V27H168.75Z"
+              fill="black"
+            />
+            <path
+              xmlns="http://www.w3.org/2000/svg"
+              d="M71.5 29L74 30.4434V27.5566L71.5 29ZM73.75 29V29.25H111.5V29V28.75H73.75V29Z"
+              fill="black"
+            />
+            <text data-v-49dae664="" class="measurement-value" x="120" y="30.5">
+              <%= finishedOpeningWidth %>
+            </text>
+            <path
+              xmlns="http://www.w3.org/2000/svg"
+              d="M168 29L165.5 30.4434V27.5566L168 29ZM165.75 29V29.25H128V29V28.75H165.75V29Z"
+              fill="black"
+            />
+          </g>
+        <% } %
+      </g>
   
       <g class="kickplate">
         <path
