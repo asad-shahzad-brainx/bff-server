@@ -11,55 +11,68 @@
       fill="none"
       id="double-door"
     >
-      <% if (roughOpeningHeight > 0) { %>
-        <g class="height">
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M67 56.25H0V55.75H67V56.25Z"
-            fill="black"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M68 58.25H14V57.75H68V58.25Z"
-            fill="black"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M1.05664 59.5L2.50002 57L3.94339 59.5L2.75002 59.5L2.75002 158L2.25002 158L2.25002 59.5L1.05664 59.5Z"
-            fill="black"
-          />
-          <text class="measurement-value" x="2" y="165"><%= roughOpeningHeight %></text>
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M1.05664 269.5L2.50002 272L3.94339 269.5L2.75002 269.5L2.75002 171L2.25002 171L2.25002 269.5L1.05664 269.5Z"
-            fill="black"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M15.5566 61L17 58.5L18.4434 61L17.25 61L17.25 171.5L16.75 171.5L16.75 61L15.5566 61Z"
-            fill="black"
-          />
-          <text class="measurement-value" x="17" y="178.5"><%= finishedOpeningHeight %></text>
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M16.75 267.5V185H17.25V267.5H18.4434L17 270L15.5566 267.5H16.75Z"
-            fill="black"
-          />
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M69 273H1V272.5H69V273Z" fill="black" />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M68 270.75H14V270.25H68V270.75Z"
-            fill="black"
-          />
-        </g>
-      <% } %>
+      <g class="height">
+        <% if (roughOpeningHeight > 0) { %>
+          <g class="height-rough">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M67 56.25H0V55.75H67V56.25Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M1.05664 59.5L2.50002 57L3.94339 59.5L2.75002 59.5L2.75002 158L2.25002 158L2.25002 59.5L1.05664 59.5Z"
+              fill="black"
+            />
+            <text class="measurement-value" x="2" y="165"><%= roughOpeningHeight %></text>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M1.05664 269.5L2.50002 272L3.94339 269.5L2.75002 269.5L2.75002 171L2.25002 171L2.25002 269.5L1.05664 269.5Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M69 273H1V272.5H69V273Z"
+              fill="black"
+            />
+          </g>  
+        <% } %>
+        <% if (finishedOpeningHeight > 0) { %>
+          <g class="height-finished">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M68 58.25H14V57.75H68V58.25Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M15.5566 61L17 58.5L18.4434 61L17.25 61L17.25 171.5L16.75 171.5L16.75 61L15.5566 61Z"
+              fill="black"
+            />
+            <text class="measurement-value" x="17" y="178.5">
+              <%= finishedOpeningHeight %>
+            </text>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M16.75 267.5V185H17.25V267.5H18.4434L17 270L15.5566 267.5H16.75Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M68 270.75H14V270.25H68V270.75Z"
+              fill="black"
+            />
+          </g>  
+        <% } %>
+      </g>
   
       <% if (protectionType === 'bumper') { %>
         <g class="bumper">
