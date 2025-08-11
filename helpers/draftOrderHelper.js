@@ -204,6 +204,12 @@ const generateDraftOrderInput = async (requestBody, files = []) => {
         : (totalCartPrice * warrantyConfig.smallOrderRate) / 100;
     warrantyProduct.originalUnitPriceWithCurrency.amount =
       warrantyAmount.toFixed(2);
+    warrantyProduct.customAttributes = [
+      {
+        key: "amount",
+        value: warrantyAmount.toFixed(2),
+      },
+    ];
     input.lineItems.push(warrantyProduct);
     input.tags.push("lifetime-warranty");
   } else {

@@ -95,8 +95,10 @@ const createDraftOrder = async (req, res) => {
     );
 
     if (draftOrderUpdateData?.draftOrderUpdate?.draftOrder?.id) {
+      const subject = `Hi ${contactInformation.firstName}! Here is your traffic door quote from Building Supply BFF.`;
       await sendDraftOrderInvoice(
-        draftOrderUpdateData.draftOrderUpdate.draftOrder.id
+        draftOrderUpdateData.draftOrderUpdate.draftOrder.id,
+        subject
       );
     }
 

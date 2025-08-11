@@ -56,7 +56,11 @@
 
         <div class="item-specification-row">
           <div class="item-specification-label"><%= formatKey(key) %>:</div>
-          <div class="item-specification-value"><%= formatKey(value?.toString() || '') %></div> 
+          <% if (key === 'jambGuardType') { %>
+            <div class="item-specification-value"><%= value?.toString() === 'large' ? '5" x 18"' : '3" x 9"' %></div> 
+          <% } else { %>
+            <div class="item-specification-value"><%= formatKey(value?.toString() || '') %></div> 
+          <% } %>
         </div>
       <% } %> 
     </div>

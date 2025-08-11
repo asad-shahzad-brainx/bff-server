@@ -1,10 +1,11 @@
 import client from "./shopifyAdmin.js";
 import draftOrderInvoiceSend from "../operations/draftOrderInvoiceSend.js";
 
-const sendDraftOrderInvoice = async (draftOrderId) => {
+const sendDraftOrderInvoice = async (draftOrderId, subject) => {
   const { data, errors } = await client.request(draftOrderInvoiceSend, {
     variables: {
       id: draftOrderId,
+      subject,
     },
   });
 

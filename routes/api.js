@@ -27,7 +27,7 @@ router.get("/signOff", customerSignOffController);
 
 // TODO: Refactor - add controllers
 // TODO: add auth check for pricing and doors endpoints
-router.get("/pricing", async (req, res) => {
+router.post("/pricing", async (req, res) => {
   const { token } = req?.body || {};
   const isTeamMember = await checkTeamMembership(token);
   if (!isTeamMember) {
@@ -42,8 +42,6 @@ router.all("/doors", async (req, res) => {
   try {
     const { token } = req?.body || {};
     const isTeamMember = await checkTeamMembership(token);
-    console.log("token", token);
-    console.log("isTeamMember", isTeamMember);
 
     const limit = parseInt(req.query.limit) || 25;
     const doors = await getPublishedDoorMetaobjects(limit, isTeamMember);

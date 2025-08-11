@@ -52,6 +52,7 @@ const operation = `
           }
         }
       }
+      note2
     }
   }
 `;
