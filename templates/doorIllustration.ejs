@@ -841,7 +841,9 @@
       </g>
   
       <% if (windowType && windowType !== 'none') { %>
-        <g class="window" <%= singleDoorHingeLocation === 'right' ?  'style="transform: translate(-15px, 0);"' : 'style="transform: translate(15px, 0);"' %>>
+        <g class="window" <%- singleDoorHingeLocation === 'right'
+            ? 'style="transform: translate(-15px, 0);"'
+            : 'style="transform: translate(15px, 0);"' %>>
           <path
             fill-rule="evenodd"
             clip-rule="evenodd"
