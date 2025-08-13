@@ -8,7 +8,8 @@
     "dev": "nodemon app.js",
     "dev:all": "concurrently \"npm run dev\" \"nodemon workers/worker.js\" --names \"app,worker\" --prefix-colors \"cyan,magenta\"",
     "watch:templates": "NODE_ENV=development nodemon --watch templates --ext ejs --exec \"node scripts/regenerateTemplates.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "npx puppeteer browsers install chrome"
   },
   "keywords": [],
   "author": "",
