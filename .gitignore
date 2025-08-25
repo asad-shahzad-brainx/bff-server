@@ -165,4 +165,6 @@ scripts
 
 *.md
 
+draft-order.html
+quote.pdf
 # End of https://www.toptal.com/developers/gitignore/api/linux,node
