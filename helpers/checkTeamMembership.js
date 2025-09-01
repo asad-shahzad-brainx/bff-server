@@ -1,5 +1,5 @@
-import { getPageMetafield } from "./getPageContent.js";
 import getCustomerFromCartToken from "../operations/customerFromCartToken.js";
+import { getTeamEmails } from "../operations/teamEmails.js";
 
 export const checkTeamMembership = async (token) => {
   if (!token) {
@@ -18,9 +18,15 @@ export const checkTeamMembership = async (token) => {
       return false;
     }
 
-    const team = await getPageMetafield("customer-flow", "custom", "team");
-    const emails = team?.references?.nodes?.map((node) => node.email);
-    return emails?.includes(email) || false;
+    const team = await getTeamEmails();
+    const emails = team?.fields?.map((field) => field.value);
+    console.log("emails", emails);
+    if (!emails) {
+      return false;
+    }
+
+    const parsedEmails = JSON.parse(emails);
+    return parsedEmails?.includes(email) || false;
   } catch (error) {
     console.error("Error checking team membership:", error);
     return false;

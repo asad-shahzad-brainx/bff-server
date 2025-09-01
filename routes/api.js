@@ -8,6 +8,7 @@ import getOrderController from "../controllers/getOrderController.js";
 import getPublishedDoorMetaobjects from "../helpers/getPublishedDoorMetaobjects.js";
 import { checkTeamMembership } from "../helpers/checkTeamMembership.js";
 import { getAllPricingMetaobjects } from "../operations/pricingMetaobjects.js";
+import warrantyCalculationController from "../controllers/warrantyCalculationController.js";
 
 const router = express.Router();
 
@@ -52,5 +53,7 @@ router.all("/doors", async (req, res) => {
 });
 
 router.post("/orders", createDraftOrder);
+
+router.post("/warranty/calculate", warrantyCalculationController);
 
 export default router;
