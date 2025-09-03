@@ -32,13 +32,18 @@ function getWarrantyLineItem(lineItems) {
   return lineItems.find((lineItem) => lineItem.title === "Lifetime Warranty");
 }
 
+// the final return of the function should be rounded to 2 decimal places
 function getOrderTotal(lineItems) {
-  return lineItems.reduce((acc, lineItem) => {
-    if (lineItem.title === "Lifetime Warranty") {
-      return acc + Number(lineItem.originalUnitPriceWithCurrency.amount);
-    }
-    return acc + Number(lineItem.priceOverride.amount);
-  }, 0);
+  return (
+    Math.round(
+      lineItems.reduce((acc, lineItem) => {
+        if (lineItem.title === "Lifetime Warranty") {
+          return acc + Number(lineItem.originalUnitPriceWithCurrency.amount);
+        }
+        return acc + Number(lineItem.priceOverride.amount);
+      }, 0) * 100
+    ) / 100
+  );
 }
 
 const renderTemplate = async (templateName, data = {}) => {

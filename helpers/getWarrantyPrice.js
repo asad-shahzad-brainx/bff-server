@@ -17,7 +17,7 @@ const calculateShippingPerUnit = (cartItems) => {
   return Math.round(totalShippingCost / totalUnits);
 };
 
-const getWarrantyPrice = async (requestBody, files = []) => {
+const getWarrantyPrice = async (requestBody) => {
   const doorModelArray = await getPublishedDoorMetaobjects(50, true);
   const { cart: cartItems } = requestBody;
 
