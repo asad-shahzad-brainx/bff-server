@@ -84,7 +84,7 @@ const generateDraftOrderInput = async (requestBody, files = []) => {
       for (const [key, value] of Object.entries(doorPrice.breakdown)) {
         customAttributes.push({
           key: `_${key}`,
-          value: String(value),
+          value: String(value.toFixed(2)),
         });
       }
 
@@ -162,8 +162,10 @@ const generateDraftOrderInput = async (requestBody, files = []) => {
       const shippingCostForItem = shippingPerUnit * itemWeightage * quantity;
       const totalPriceWithShipping = doorPrice.totalPrice + shippingCostForItem;
 
+      const unitPriceWithShipping = totalPriceWithShipping / quantity;
+
       const priceOverride = {
-        amount: totalPriceWithShipping.toFixed(2),
+        amount: unitPriceWithShipping.toFixed(2),
         currencyCode: "USD",
       };
 
