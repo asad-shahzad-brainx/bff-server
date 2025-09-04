@@ -154,14 +154,12 @@ const calculateDoorPrice = async (
 
     if (isNaN(width) || isNaN(height) || height <= 0) return 0;
 
-    // Find closest standard size
-    const { width: closestWidth, height: closestHeight } = findClosestSize(
-      width,
-      height
-    );
+    const widthKey = width <= 36 ? "36" : "48";
+    const heightKey =
+      height <= 12 ? "12" : height <= 24 ? "24" : height <= 36 ? "36" : "42";
 
     // Create lookup key
-    const key = `${closestWidth}_${closestHeight}_${config}`;
+    const key = `${widthKey}_${heightKey}_${config}`;
 
     const pricing = pricingData.protectionPlate[key];
     return pricing ? parseFloat(pricing[material] || 0) : 0;
