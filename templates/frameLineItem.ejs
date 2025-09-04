@@ -14,11 +14,23 @@
     </div>
     <div class="item-header-cell">
       <div class="item-header-label cell">UNIT PRICE</div>
-      <div class="item-header-value"><%= (Number(getCustomAttribute(lineItem.customAttributes, '_frame')?.value || 0) + Number(getCustomAttribute(lineItem.customAttributes, '_shippingPerUnit')?.value || 0)).toFixed(2) + " " + lineItem.priceOverride.currencyCode %></div>
+      <div class="item-header-value">
+        <% if (isManufacturerQuote) { %>
+          -
+        <% } else { %>
+          <%= (Number(getCustomAttribute(lineItem.customAttributes, '_frame')?.value || 0) + Number(getCustomAttribute(lineItem.customAttributes, '_shippingPerUnit')?.value || 0)).toFixed(2) + " " + lineItem.priceOverride.currencyCode %>
+        <% } %>
+      </div>
     </div>
     <div class="item-header-cell">
       <div class="item-header-label cell">TOTAL PRICE</div>
-      <div class="item-header-value"><%= ((Number(getCustomAttribute(lineItem.customAttributes, '_frame')?.value || 0) + Number(getCustomAttribute(lineItem.customAttributes, '_shippingPerUnit')?.value || 0)) * Number(lineItem.quantity)).toFixed(2) + " " + lineItem.priceOverride.currencyCode %></div>
+      <div class="item-header-value">
+        <% if (isManufacturerQuote) { %>
+          -
+        <% } else { %>
+          <%= ((Number(getCustomAttribute(lineItem.customAttributes, '_frame')?.value || 0) + Number(getCustomAttribute(lineItem.customAttributes, '_shippingPerUnit')?.value || 0)) * Number(lineItem.quantity)).toFixed(2) + " " + lineItem.priceOverride.currencyCode %>
+        <% } %>
+      </div>
     </div>
   </div>
 

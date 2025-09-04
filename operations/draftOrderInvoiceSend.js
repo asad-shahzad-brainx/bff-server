@@ -1,6 +1,6 @@
 const operation = `
-  mutation DraftOrderInvoiceSend($id: ID!, $subject: String!) {
-    draftOrderInvoiceSend(id: $id, email: {subject: $subject}) {
+  mutation DraftOrderInvoiceSend($id: ID!, $subject: String!, $bcc: [String!]) {
+    draftOrderInvoiceSend(id: $id, email: {subject: $subject, bcc: $bcc}) {
       draftOrder {
         id
         invoiceSentAt

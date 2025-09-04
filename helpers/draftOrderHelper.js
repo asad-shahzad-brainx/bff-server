@@ -5,6 +5,8 @@ import getPublishedDoorMetaobjects from "../helpers/getPublishedDoorMetaobjects.
 import uploadFile from "./uploadFileToAdmin.js";
 import waitForUrl from "./waitForUrl.js";
 import { v4 as uuidv4 } from "uuid";
+import { calculateTotalCost } from "./calculateDoorPrice.js";
+import getProfitMargin from "../operations/getProfitMargin.js";
 
 const warrantyProduct = {
   title: "Lifetime Warranty",
@@ -30,7 +32,7 @@ const calculateShippingPerUnit = (cartItems) => {
 };
 
 const generateDraftOrderInput = async (requestBody, files = []) => {
-  const doorModelArray = await getPublishedDoorMetaobjects(50, true);
+  const doorModelArray = await getPublishedDoorMetaobjects(250, true);
   const { contactInformation, selectedUpsells, cart: cartItems } = requestBody;
 
   const {
@@ -58,6 +60,17 @@ const generateDraftOrderInput = async (requestBody, files = []) => {
   const shippingPerUnit = calculateShippingPerUnit(cartItems);
   const warrantyConfig = await getWarrantyConfig();
 
+  const cartTotalCost = await calculateTotalCost(cartItems, doorModelArray);
+  const profitMargin = await getProfitMargin(cartTotalCost);
+  const profitMarginConfig = {
+    door: profitMargin,
+    frame: profitMargin,
+    jambGuard: profitMargin,
+    protectionPlate: profitMargin,
+    bumper: profitMargin,
+    aluminumStrip: profitMargin,
+  };
+
   const lineItems = await Promise.all(
     cartItems.map(async (item, index) => {
       const { doorConfig, handle, quantity, margins } = item;
@@ -65,7 +78,7 @@ const generateDraftOrderInput = async (requestBody, files = []) => {
         return;
       }
 
-      const marginConfig = margins && JSON.parse(margins);
+      const marginConfig = margins ? JSON.parse(margins) : profitMarginConfig;
 
       const itemPhotos = files.filter((file) =>
         file.fieldname.includes(`photos[${index}]`)

@@ -1,6 +1,6 @@
-<%- include('doorLineItem', { item: item, index: index, lineItem: lineItem }) %>
+<%- include('doorLineItem', { item: item, index: index, lineItem: lineItem, isManufacturerQuote: isManufacturerQuote }) %>
 <% if (item.doorConfig.frameType !== 'none') { %>
   <div class="page-break"></div>
-  <%- include('frameLineItem', { item: item, index: index, lineItem: lineItem }) %>
+  <%- include('frameLineItem', { item: item, index: index, lineItem: lineItem, isManufacturerQuote: isManufacturerQuote }) %>
 <% } %>
 <div class="page-break"></div>

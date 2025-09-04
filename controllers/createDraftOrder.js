@@ -12,7 +12,7 @@ import extractIdFromGid from "../helpers/extractIdFromGid.js";
 import sendDraftOrderInvoice from "../helpers/sendDraftOrderInvoice.js";
 import getPageContent from "../helpers/getPageContent.js";
 import { v4 as uuidv4 } from "uuid";
-// import { queue } from "../services/queue.js";
+import { sendQuoteToManufacturer } from "../helpers/resendClient.js";
 
 const createDraftOrder = async (req, res) => {
   try {
@@ -69,6 +69,7 @@ const createDraftOrder = async (req, res) => {
         title: pageContent.title,
         body: pageContent.body,
       },
+      isManufacturerQuote: false,
     });
 
     const quotePdf = await generatePdfFromHtml(html);
@@ -102,11 +103,17 @@ const createDraftOrder = async (req, res) => {
       );
     }
 
-    // await queue.add("quote-processing", {
-    //   draftOrderId: data.draftOrderCreate.draftOrder.id,
-    //   input,
-    //   rawData: req.body,
+    // const manufacturerHtml = await renderTemplate("main", {
+    //   input: parsedBody,
+    //   lineItems: input.lineItems,
+    //   terms: {
+    //     title: pageContent.title,
+    //     body: pageContent.body,
+    //   },
+    //   isManufacturerQuote: true,
     // });
+    // const manufacturerPdf = await generatePdfFromHtml(manufacturerHtml);
+    // await sendQuoteToManufacturer(manufacturerPdf, draftOrderNumber);
   } catch (error) {
     console.error("Error creating draft order:", error);
     return res.status(500).json({

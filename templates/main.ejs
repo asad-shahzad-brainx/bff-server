@@ -20,12 +20,14 @@
     <main>
       <%- include('customerDetails', { customer: input.contactInformation }) %>
       <% for (const [index, item] of input.cart.entries()) { %>
-        <%- include('newLineItem', { item: item, index: index, lineItem: lineItems[index] }) %>
+        <%- include('newLineItem', { item: item, index: index, lineItem: lineItems[index], isManufacturerQuote: isManufacturerQuote }) %>
       <% } %>
-      <%- include('warrantyLineItem', { lineItem: getWarrantyLineItem(lineItems) }) %>
-      <%- include('shippingDetails') %>
-      <%- include('totalPrice', { lineItems: lineItems }) %>
-      <%- include('termsAndConditions', { terms: terms }) %>
+      <% if (!isManufacturerQuote) { %>
+        <%- include('warrantyLineItem', { lineItem: getWarrantyLineItem(lineItems) }) %>
+        <%- include('shippingDetails') %>
+        <%- include('totalPrice', { lineItems: lineItems }) %>
+        <%- include('termsAndConditions', { terms: terms }) %>
+      <% } %>
     </main>
     <%- include('footer') %>
 </body>

@@ -105,10 +105,10 @@ const calculateDoorPrice = async (
 
   // Calculate jamb guard price
   const calculateJambGuardPrice = (doorConfig) => {
-    if (!doorConfig.jamGuardIncluded) return 0;
+    if (doorConfig.jambGuardIncluded === "no") return 0;
 
-    const size = doorConfig.jamGuardType;
-    const material = doorConfig.jamGuardFinish;
+    const size = doorConfig.jambGuardType;
+    const material = doorConfig.jambGuardFinish;
 
     return parseFloat(pricingData.jambGuard[size][material] || 0);
   };
@@ -249,6 +249,15 @@ const calculateDoorPrice = async (
   // Multiply by quantity
   const totalPrice = unitTotal * quantity;
 
+  const unitTotalWithoutMargins =
+    doorPrice +
+    framePrice +
+    jambGuardPrice +
+    protectionPrice +
+    bumperPrice +
+    aluminumStripPrice;
+  const totalPriceWithoutMargins = unitTotalWithoutMargins * quantity;
+
   // Return detailed breakdown
   return {
     breakdown: {
@@ -259,9 +268,11 @@ const calculateDoorPrice = async (
       bumper: bumperPriceWithMargin,
       aluminumStrip: aluminumStripPriceWithMargin,
       unitTotal: unitTotal,
+      unitTotalWithoutMargins: unitTotalWithoutMargins,
     },
     quantity: quantity,
     totalPrice: totalPrice,
+    totalPriceWithoutMargins: totalPriceWithoutMargins,
   };
 };
 
@@ -276,14 +287,45 @@ const calculateDoorPrice = async (
  * const totalPrice = await calculateDoorPriceSimple(doorModel, doorConfig, 3);
  * console.log(`Total: $${totalPrice.toFixed(2)}`);
  */
-const calculateDoorPriceSimple = async (
+const calculateDoorCost = async (
   doorModel,
   doorConfig,
-  quantity = 1
+  quantity = 1,
+  margins = defaultMargin
 ) => {
-  const result = await calculateDoorPrice(doorModel, doorConfig, quantity);
-  return result.totalPrice;
+  const result = await calculateDoorPrice(
+    doorModel,
+    doorConfig,
+    quantity,
+    margins
+  );
+  return result.totalPriceWithoutMargins;
 };
 
-export { calculateDoorPrice, calculateDoorPriceSimple };
+const calculateTotalCost = async (cartItems, doorModelArray) => {
+  const margins = {
+    door: 0,
+    frame: 0,
+    jambGuard: 0,
+    protectionPlate: 0,
+    bumper: 0,
+    aluminumStrip: 0,
+  };
+  const totalCost = await Promise.all(
+    cartItems.map(async (item) => {
+      const { doorConfig, handle, quantity } = item;
+      const doorModel = doorModelArray.find((model) => model.handle === handle);
+      const doorCost = await calculateDoorCost(
+        doorModel,
+        doorConfig,
+        quantity,
+        margins
+      );
+      return doorCost;
+    })
+  );
+  return totalCost.reduce((sum, cost) => sum + cost, 0);
+};
+
+export { calculateDoorPrice, calculateDoorCost, calculateTotalCost };
 export default calculateDoorPrice;

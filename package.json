@@ -27,7 +27,8 @@
     "ioredis": "^5.6.1",
     "multer": "^1.4.5-lts.2",
     "puppeteer": "^24.16.1",
-    "puppeteer-cluster": "^0.24.0"
+    "puppeteer-cluster": "^0.24.0",
+    "resend": "^6.0.2"
   },
   "devDependencies": {
     "concurrently": "^9.0.1",
