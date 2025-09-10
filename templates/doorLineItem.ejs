@@ -18,7 +18,7 @@
         <% if (isManufacturerQuote) { %>
           -
         <% } else { %>
-          <%= ((Number(lineItem.priceOverride.amount) / Number(lineItem.quantity)) - Number(getCustomAttribute(lineItem.customAttributes, '_frame')?.value || 0) - (item.doorConfig.frameType !== "none" ? Number(getCustomAttribute(lineItem.customAttributes, '_shippingPerUnit')?.value) : 0)).toFixed(2) + " " + lineItem.priceOverride.currencyCode %>
+          <%= (Number(lineItem.priceOverride.amount) - Number(getCustomAttribute(lineItem.customAttributes, '_frame')?.value || 0) - (item.doorConfig.frameType !== "none" ? Number(getCustomAttribute(lineItem.customAttributes, '_shippingPerUnit')?.value) : 0)).toFixed(2) + " " + lineItem.priceOverride.currencyCode %>
         <% } %>
       </div>
     </div>
@@ -51,7 +51,7 @@
       </div>
       <div class="item-details-cell">
         <div class="item-details-label cell">WINDOW SIZE</div>
-        <div class="item-details-value"><%= item.doorConfig.windowType === 'standard' ? '9" x 14"' : `${item.doorConfig.customWindowWidth}" x ${item.doorConfig.customWindowHeight}"` %></div>
+        <div class="item-details-value"><%= item.doorConfig.windowType === 'none' ? "N/A" : item.doorConfig.windowType === 'standard' ? '9" x 14"' : `${item.doorConfig.customWindowWidth}" x ${item.doorConfig.customWindowHeight}"` %></div>
       </div>
       <div class="item-details-cell">
         <div class="item-details-label cell cell-last">FRAME (Y/N)</div>
