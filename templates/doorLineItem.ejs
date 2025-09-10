@@ -18,7 +18,17 @@
         <% if (isManufacturerQuote) { %>
           -
         <% } else { %>
-          <%= (Number(lineItem.priceOverride.amount) - Number(getCustomAttribute(lineItem.customAttributes, '_frame')?.value || 0) - (item.doorConfig.frameType !== "none" ? Number(getCustomAttribute(lineItem.customAttributes, '_shippingPerUnit')?.value) : 0)).toFixed(2) + " " + lineItem.priceOverride.currencyCode %>
+          <%
+            const price = Number(lineItem.priceOverride.amount);
+            const frame = Number(getCustomAttribute(lineItem.customAttributes, '_frame')?.value || 0);
+            const shippingPerUnit = Number(getCustomAttribute(lineItem.customAttributes, '_shippingPerUnit')?.value || 0);
+
+            const shipping = item.doorConfig.frameType !== "none" ? shippingPerUnit : 0;
+
+            const subtotal = price - frame - shipping;
+          %>
+
+          <%= subtotal.toFixed(2) + " " + lineItem.priceOverride.currencyCode %>
         <% } %>
       </div>
     </div>
@@ -28,7 +38,20 @@
         <% if (isManufacturerQuote) { %>
           -
         <% } else { %>
-          <%= (Number(lineItem.priceOverride.amount) - Number(getCustomAttribute(lineItem.customAttributes, '_frame')?.value || 0) - (item.doorConfig.frameType !== "none" ? Number(getCustomAttribute(lineItem.customAttributes, '_shippingPerUnit')?.value) * Number(lineItem.quantity) : 0)).toFixed(2) + " " + lineItem.priceOverride.currencyCode %>
+          <%
+            const price = Number(lineItem.priceOverride.amount);
+            const frame = Number(getCustomAttribute(lineItem.customAttributes, '_frame')?.value || 0);
+            const shippingPerUnit = Number(getCustomAttribute(lineItem.customAttributes, '_shippingPerUnit')?.value || 0);
+            const quantity = Number(lineItem.quantity);
+
+            const shipping = item.doorConfig.frameType !== "none" 
+              ? shippingPerUnit * quantity 
+              : 0;
+
+            const total = (price - frame - shipping) * quantity;
+          %>
+
+          <%= total.toFixed(2) + " " + lineItem.priceOverride.currencyCode %>
         <% } %>
       </div>
     </div>

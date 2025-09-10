@@ -20,7 +20,6 @@ export const checkTeamMembership = async (token) => {
 
     const team = await getTeamEmails();
     const emails = team?.fields?.map((field) => field.value);
-    console.log("emails", emails);
     if (!emails) {
       return false;
     }

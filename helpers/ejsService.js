@@ -40,7 +40,7 @@ function getOrderTotal(lineItems) {
         if (lineItem.title === "Lifetime Warranty") {
           return acc + Number(lineItem.originalUnitPriceWithCurrency.amount);
         }
-        return acc + Number(lineItem.priceOverride.amount);
+        return acc + Number(lineItem.priceOverride.amount) * Number(lineItem.quantity);
       }, 0) * 100
     ) / 100
   );
