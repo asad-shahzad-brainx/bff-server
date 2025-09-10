@@ -44,17 +44,12 @@ const sendQuoteToManufacturer = async (attachment, draftOrderNumber) => {
     ? process.env.MANUFACTURER_EMAILS.split(",").map((email) => email.trim())
     : ["asad.shahzad@brainxtech.com"];
 
-  const fromEmail =
-    process.env.FROM_EMAIL ||
-    "Building Supply BFF <quotes@buildingsupplybff.com>";
+  const fromEmail = "Building Supply BFF <orders@buildingsupplybff.com>";
 
   const subject = `New Quote Request`;
 
   const body = `
-    New quote request received.
-    Please review the attached quote and respond accordingly.
-
-    Building Supply BFF Team
+    Please provide a quote for the attached PDF. If you have any questions, reply to this email.
   `.trim();
 
   return await sendEmail(subject, body, fromEmail, manufacturerEmails, [

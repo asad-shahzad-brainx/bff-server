@@ -29,11 +29,11 @@ router.get("/signOff", customerSignOffController);
 // TODO: Refactor - add controllers
 // TODO: add auth check for pricing and doors endpoints
 router.post("/pricing", async (req, res) => {
-  const { token } = req?.body || {};
-  const isTeamMember = await checkTeamMembership(token);
-  if (!isTeamMember) {
-    return res.status(401).json({});
-  }
+  // const { token } = req?.body || {};
+  // const isTeamMember = await checkTeamMembership(token);
+  // if (!isTeamMember) {
+  //   return res.status(401).json({});
+  // }
 
   const pricing = await getAllPricingMetaobjects();
   return res.status(200).json(pricing);
@@ -45,7 +45,7 @@ router.all("/doors", async (req, res) => {
     const isTeamMember = await checkTeamMembership(token);
 
     const limit = parseInt(req.query.limit) || 25;
-    const doors = await getPublishedDoorMetaobjects(limit, isTeamMember);
+    const doors = await getPublishedDoorMetaobjects(limit, true);
     res.status(200).json(doors);
   } catch (error) {
     res.status(500).json({ error: error.message });
