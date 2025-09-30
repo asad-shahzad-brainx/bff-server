@@ -16,7 +16,7 @@ import { sendQuoteToManufacturer } from "../helpers/resendClient.js";
 
 const createDraftOrder = async (req, res) => {
   try {
-    const { contactInformation, smsConsent } = req.body;
+    const { contactInformation, smsConsent, sendEmailToManufacturer } = req.body;
     const accountActivationUrl = await createOrUpdateCustomer(
       contactInformation,
       smsConsent
@@ -103,17 +103,20 @@ const createDraftOrder = async (req, res) => {
       );
     }
 
-    const manufacturerHtml = await renderTemplate("main", {
-      input: parsedBody,
-      lineItems: input.lineItems,
-      terms: {
-        title: pageContent.title,
-        body: pageContent.body,
-      },
-      isManufacturerQuote: true,
-    });
-    const manufacturerPdf = await generatePdfFromHtml(manufacturerHtml);
-    await sendQuoteToManufacturer(manufacturerPdf, draftOrderNumber);
+    // if sendEmailToManufacturer is not defined or is true, send email to manufacturer
+    if (sendEmailToManufacturer || typeof sendEmailToManufacturer === "undefined") {
+      const manufacturerHtml = await renderTemplate("main", {
+        input: parsedBody,
+        lineItems: input.lineItems,
+        terms: {
+          title: pageContent.title,
+          body: pageContent.body,
+        },
+        isManufacturerQuote: true,
+      });
+      const manufacturerPdf = await generatePdfFromHtml(manufacturerHtml);
+      await sendQuoteToManufacturer(manufacturerPdf, draftOrderNumber);
+    }
   } catch (error) {
     console.error("Error creating draft order:", error);
     return res.status(500).json({
