@@ -10,7 +10,7 @@ const sendDraftOrderInvoice = async (
     variables: {
       id: draftOrderId,
       subject,
-      bcc,
+      bcc: process.env.NODE_ENV === "development" ? [] : bcc,
     },
   });
 

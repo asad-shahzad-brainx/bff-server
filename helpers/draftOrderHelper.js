@@ -31,7 +31,7 @@ const calculateShippingPerUnit = (cartItems) => {
   return Math.round(totalShippingCost / totalUnits);
 };
 
-const generateDraftOrderInput = async (requestBody, files = []) => {
+const generateDraftOrderInput = async (requestBody, files = [], isTeamMember = false) => {
   const doorModelArray = await getPublishedDoorMetaobjects(250, true);
   const { contactInformation, selectedUpsells, cart: cartItems } = requestBody;
 
@@ -101,10 +101,16 @@ const generateDraftOrderInput = async (requestBody, files = []) => {
         });
       }
 
-      customAttributes.push({
-        key: `_shippingPerUnit`,
-        value: String(shippingPerUnit),
-      });
+      customAttributes.push(...[
+        {
+          key: `_shippingPerUnit`,
+          value: String(shippingPerUnit),
+        },
+        {
+          key: `_margin`,
+          value: String(profitMargin),
+        }
+      ]);
 
       const keysToExclude = [
         "currentSubStepIndex",
@@ -203,7 +209,7 @@ const generateDraftOrderInput = async (requestBody, files = []) => {
     input.phone = phone;
   }
 
-  input.tags = ["Customer Flow"];
+  input.tags = ["Configurator Quote", isTeamMember ? "Team Quote" : "Customer Flow"];
 
   const parsedUpsells = JSON.parse(selectedUpsells);
   const warrantyType = parsedUpsells.id;

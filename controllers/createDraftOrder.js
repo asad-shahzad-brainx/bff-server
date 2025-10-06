@@ -6,6 +6,8 @@ import renderTemplate from "../helpers/ejsService.js";
 import generatePdfFromHtml from "../helpers/pdfService.js";
 import uploadFile from "../helpers/uploadFileToAdmin.js";
 import waitForUrl from "../helpers/waitForUrl.js";
+import waitForDraftOrder from "../helpers/waitForDraftOrder.js";
+import { checkTeamMembership } from "../helpers/checkTeamMembership.js";
 import draftOrderUpdate from "../operations/draftOrderUpdate.js";
 import { encryptToken } from "../helpers/token.js";
 import extractIdFromGid from "../helpers/extractIdFromGid.js";
@@ -16,7 +18,7 @@ import { sendQuoteToManufacturer } from "../helpers/resendClient.js";
 
 const createDraftOrder = async (req, res) => {
   try {
-    const { contactInformation, smsConsent, sendEmailToManufacturer } = req.body;
+    const { contactInformation, smsConsent, sendEmailToManufacturer, token } = req.body;
     const accountActivationUrl = await createOrUpdateCustomer(
       contactInformation,
       smsConsent
@@ -30,11 +32,13 @@ const createDraftOrder = async (req, res) => {
       })),
     };
 
-    const input = await generateDraftOrderInput(parsedBody, req.files);
+    const isTeamMember = await checkTeamMembership(token);
+    const input = await generateDraftOrderInput(parsedBody, req.files, isTeamMember);
     // return res.status(201).json({
     //   status: "success",
     //   message: "Draft order created successfully",
     //   input,
+    //   html: html2
     // });
 
     const { data, errors } = await client.request(draftOrderCreate, {
@@ -53,6 +57,13 @@ const createDraftOrder = async (req, res) => {
       });
     }
 
+    if (errors) {
+      return res.status(400).json({
+        status: "error",
+        message: "Failed to create draft order",
+      });
+    }
+
     res.status(201).json({
       status: "success",
       message: "Draft order created successfully",
@@ -60,6 +71,8 @@ const createDraftOrder = async (req, res) => {
 
     const draftOrderId = data.draftOrderCreate.draftOrder.id;
     const draftOrderNumber = data.draftOrderCreate.draftOrder.name;
+
+    await waitForDraftOrder(draftOrderId);
 
     const pageContent = await getPageContent("quote");
     const html = await renderTemplate("main", {
@@ -103,8 +116,7 @@ const createDraftOrder = async (req, res) => {
       );
     }
 
-    // if sendEmailToManufacturer is not defined or is true, send email to manufacturer
-    if (sendEmailToManufacturer || typeof sendEmailToManufacturer === "undefined") {
+    if (sendEmailToManufacturer === "true" || typeof sendEmailToManufacturer === "undefined") {
       const manufacturerHtml = await renderTemplate("main", {
         input: parsedBody,
         lineItems: input.lineItems,
