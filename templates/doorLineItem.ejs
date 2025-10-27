@@ -74,7 +74,14 @@
       </div>
       <div class="item-details-cell">
         <div class="item-details-label cell">WINDOW SIZE</div>
-        <div class="item-details-value"><%= item.doorConfig.windowType === 'none' ? "N/A" : item.doorConfig.windowType === 'standard' ? '9" x 14"' : `${item.doorConfig.customWindowWidth}" x ${item.doorConfig.customWindowHeight}"` %></div>
+        <div class="item-details-value"><%
+          if (item.doorConfig.windowType === 'none') { %>N/A<% }
+          else if (item.doorConfig.windowType === 'standard') { 
+            const defaultWidth = item.doorModel?.defaultWindowSize?.width || 9;
+            const defaultHeight = item.doorModel?.defaultWindowSize?.height || 14;
+            %><%= defaultWidth %>" x <%= defaultHeight %>"<% 
+          } else { %><%= item.doorConfig.customWindowWidth %>" x <%= item.doorConfig.customWindowHeight %>"<% }
+        %></div>
       </div>
       <div class="item-details-cell">
         <div class="item-details-label cell cell-last">FRAME (Y/N)</div>

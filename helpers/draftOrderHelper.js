@@ -7,6 +7,8 @@ import waitForUrl from "./waitForUrl.js";
 import { v4 as uuidv4 } from "uuid";
 import { calculateTotalCost } from "./calculateDoorPrice.js";
 import getProfitMargin from "../operations/getProfitMargin.js";
+import getShippingCost from "../operations/getShippingCost.js";
+import { splitProductsWithFrames } from "./productSplitter.js";
 
 const warrantyProduct = {
   title: "Lifetime Warranty",
@@ -21,14 +23,33 @@ const getItemWeightage = (doorConfig) => {
   return doorConfig.frameType !== "none" ? 2 : 1;
 };
 
-const calculateShippingPerUnit = (cartItems) => {
+const enrichCartItemsWithDoorModels = (cartItems, doorModelArray) => {
+  return cartItems.map(item => {
+    const doorModel = doorModelArray.find(model => model.handle === item.handle);
+    return {
+      ...item,
+      doorModel: doorModel ? {
+        defaultWindowSize: doorModel.defaultWindowSize
+      } : null
+    };
+  });
+};
+
+const calculateShippingPerUnit = async (cartItems) => {
   const totalUnits = cartItems.reduce((acc, item) => {
     const weightage = getItemWeightage(item.doorConfig);
     return acc + weightage * item.quantity;
   }, 0);
 
-  const totalShippingCost = totalUnits > 1 ? 600 : 400;
-  return Math.round(totalShippingCost / totalUnits);
+  try {
+    const totalShippingCost = await getShippingCost(totalUnits);
+    return Math.round(totalShippingCost / totalUnits);
+  } catch (error) {
+    console.error("Error calculating dynamic shipping cost:", error);
+    // Fallback to original logic
+    const totalShippingCost = totalUnits > 1 ? 600 : 400;
+    return Math.round(totalShippingCost / totalUnits);
+  }
 };
 
 const generateDraftOrderInput = async (requestBody, files = [], isTeamMember = false) => {
@@ -57,7 +78,9 @@ const generateDraftOrderInput = async (requestBody, files = [], isTeamMember = f
     return;
   }
 
-  const shippingPerUnit = calculateShippingPerUnit(cartItems);
+  const enrichedCart = enrichCartItemsWithDoorModels(cartItems, doorModelArray);
+
+  const shippingPerUnit = await calculateShippingPerUnit(cartItems);
   const warrantyConfig = await getWarrantyConfig();
 
   const cartTotalCost = await calculateTotalCost(cartItems, doorModelArray);
@@ -71,130 +94,13 @@ const generateDraftOrderInput = async (requestBody, files = [], isTeamMember = f
     aluminumStrip: profitMargin,
   };
 
-  const lineItems = await Promise.all(
-    cartItems.map(async (item, index) => {
-      const { doorConfig, handle, quantity, margins } = item;
-      if (!doorConfig) {
-        return;
-      }
-
-      const marginConfig = margins ? JSON.parse(margins) : profitMarginConfig;
-
-      const itemPhotos = files.filter((file) =>
-        file.fieldname.includes(`photos[${index}]`)
-      );
-
-      const doorModel = doorModelArray.find((model) => model.handle === handle);
-      const doorPrice = await calculateDoorPrice(
-        doorModel,
-        doorConfig,
-        quantity,
-        marginConfig
-      );
-
-      const customAttributes = [];
-
-      for (const [key, value] of Object.entries(doorPrice.breakdown)) {
-        customAttributes.push({
-          key: `_${key}`,
-          value: String(value.toFixed(2)),
-        });
-      }
-
-      customAttributes.push(...[
-        {
-          key: `_shippingPerUnit`,
-          value: String(shippingPerUnit),
-        },
-        {
-          key: `_margin`,
-          value: String(profitMargin),
-        }
-      ]);
-
-      const keysToExclude = [
-        "currentSubStepIndex",
-        "skippedSteps",
-        "photoUploads",
-      ];
-
-      Object.entries(doorConfig).forEach(([key, value]) => {
-        if (!keysToExclude.includes(key) && value !== "" && value !== null) {
-          customAttributes.push({
-            key,
-            value: String(value),
-          });
-        }
-      });
-
-      // Upload photos to Shopify and get URLs
-      if (itemPhotos && itemPhotos.length > 0) {
-        const uploadedPhotoUrls = await Promise.all(
-          itemPhotos.map(async (photo, photoIndex) => {
-            try {
-              const fileExtension = photo.originalname.split(".").pop();
-              const cleanFileName = `item-${Date.now()}-${uuidv4()}.${fileExtension}`;
-
-              const uploadedFileId = await uploadFile(
-                photo.buffer,
-                cleanFileName,
-                "IMAGE",
-                photo.mimetype
-              );
-
-              const photoUrl = await waitForUrl(uploadedFileId);
-              return photoUrl;
-            } catch (error) {
-              console.error(
-                `Error uploading photo for item ${index}, photo ${photoIndex}:`,
-                error
-              );
-              return null;
-            }
-          })
-        );
-
-        // Filter out any failed uploads and add to custom attributes
-        const validPhotoUrls = uploadedPhotoUrls.filter((url) => url !== null);
-        if (validPhotoUrls.length > 0) {
-          // Also add individual photo URLs for easier access
-          validPhotoUrls.forEach((url, photoIndex) => {
-            customAttributes.push({
-              key: `photo_${photoIndex + 1}`,
-              value: url,
-            });
-          });
-        }
-      }
-
-      const productHandle =
-        typeof handle === "object" ? Object.values(handle)[0] : handle;
-      const product = await productByIdentifier(productHandle);
-
-      if (!product) {
-        return;
-      }
-
-      const { id: variantId } = product.variants.nodes[0];
-
-      const itemWeightage = getItemWeightage(doorConfig);
-      const shippingCostForItem = shippingPerUnit * itemWeightage * quantity;
-      const totalPriceWithShipping = doorPrice.totalPrice + shippingCostForItem;
-
-      const unitPriceWithShipping = totalPriceWithShipping / quantity;
-
-      const priceOverride = {
-        amount: unitPriceWithShipping.toFixed(2),
-        currencyCode: "USD",
-      };
-
-      return {
-        variantId,
-        quantity: Number(quantity),
-        customAttributes,
-        priceOverride,
-      };
-    })
+  // Use new product splitting logic to handle door and frame separation
+  const lineItems = await splitProductsWithFrames(
+    cartItems,
+    doorModelArray,
+    profitMarginConfig,
+    shippingPerUnit,
+    files
   );
 
   const input = {
@@ -278,7 +184,7 @@ const generateDraftOrderInput = async (requestBody, files = [], isTeamMember = f
     },
   ];
 
-  return input;
+  return { input, enrichedCart };
 };
 
 export default generateDraftOrderInput;

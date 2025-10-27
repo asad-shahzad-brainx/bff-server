@@ -199,16 +199,16 @@
       <% if (windowType && windowType !== 'none') { %>
         <g class="window">
           <text class="measurement-value" x="99.25" y="116.75">
-            <%= typeof customWindowHeight !== 'undefined' && customWindowHeight !== null ? customWindowHeight : 14 %>
+            <%= typeof customWindowHeight !== 'undefined' && customWindowHeight !== null ? customWindowHeight : (item.doorModel?.defaultWindowSize?.height || 14) %>
           </text>
           <text class="measurement-value" x="149.25" y="116.75">
-            <%= typeof customWindowHeight !== 'undefined' && customWindowHeight !== null ? customWindowHeight : 14 %>
+            <%= typeof customWindowHeight !== 'undefined' && customWindowHeight !== null ? customWindowHeight : (item.doorModel?.defaultWindowSize?.height || 14) %>
           </text>
           <text class="measurement-value" x="146.5" y="90">
-            <%= typeof customWindowWidth !== 'undefined' && customWindowWidth !== null ? customWindowWidth : 9 %>
+            <%= typeof customWindowWidth !== 'undefined' && customWindowWidth !== null ? customWindowWidth : (item.doorModel?.defaultWindowSize?.width || 9) %>
           </text>
           <text class="measurement-value" x="95.5" y="90">
-            <%= typeof customWindowWidth !== 'undefined' && customWindowWidth !== null ? customWindowWidth : 9 %>
+            <%= typeof customWindowWidth !== 'undefined' && customWindowWidth !== null ? customWindowWidth : (item.doorModel?.defaultWindowSize?.width || 9) %>
           </text>
           <path
             fill-rule="evenodd"
@@ -409,7 +409,7 @@
         />
       </g>
   
-      <% if (jambGuardIncluded) { %>
+      <% if (jambGuardIncluded && jambGuardIncluded.toLowerCase() !== "no") { %>
         <g class="jamb-guard <%= jambGuardType %>">
           <g class="jamb-guard--left">
             <path
@@ -708,7 +708,7 @@
         </g>
       <% } %>
   
-      <% if (jambGuardIncluded) { %>
+      <% if (jambGuardIncluded && jambGuardIncluded.toLowerCase() !== "no") { %>
         <g class="jamb-guard <%= jambGuardType %>">
           <% if (singleDoorHingeLocation === 'left') { %>
             <g class="jamb-guard--left">
@@ -910,7 +910,7 @@
             y="119"
             style="fill: black; font-size: 8px; text-anchor: middle"
           >
-            <%= typeof customWindowHeight !== 'undefined' && customWindowHeight !== null ? customWindowHeight : 14 %>
+            <%= typeof customWindowHeight !== 'undefined' && customWindowHeight !== null ? customWindowHeight : (item.doorModel?.defaultWindowSize?.height || 14) %>
           </text>
           <path
             fill-rule="evenodd"
@@ -937,7 +937,7 @@
             y="92"
             style="fill: black; font-size: 8px; text-anchor: middle"
           >
-            <%= typeof customWindowWidth !== 'undefined' && customWindowWidth !== null ? customWindowWidth : 9 %>
+            <%= typeof customWindowWidth !== 'undefined' && customWindowWidth !== null ? customWindowWidth : (item.doorModel?.defaultWindowSize?.width || 9) %>
           </text>
           <path
             fill-rule="evenodd"

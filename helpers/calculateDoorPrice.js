@@ -80,24 +80,28 @@ const calculateDoorPrice = async (
   const calculateFramePrice = (doorConfig) => {
     if (!doorConfig || doorConfig.frameType === "none") return 0;
 
-    // Get dimensions
+    const frameHandle = doorConfig.frameType;
+    const frameOption = pricingData.frame.find(f => f.handle === frameHandle);
+    
+    if (!frameOption) {
+      console.warn(`Frame option "${frameHandle}" not found in pricing data`);
+      return 0;
+    }
+
     const width = parseFloat(doorConfig.roughOpeningWidth);
     const height = parseFloat(doorConfig.roughOpeningHeight);
 
     if (isNaN(width) || isNaN(height)) return 0;
 
-    // Frame area calculation (approximate based on perimeter)
-    // Assuming standard frame depth
-    const frameArea = (width + height * 2) / 12; // Convert to linear feet
+    const frameArea = (width + height * 2) / 12;
 
-    // Determine rate based on height
     let rate;
     if (height <= 84) {
-      rate = parseFloat(pricingData.frame.standard);
+      rate = frameOption.pricing.standard;
     } else if (height <= 96) {
-      rate = parseFloat(pricingData.frame.tall);
+      rate = frameOption.pricing.tall;
     } else {
-      rate = parseFloat(pricingData.frame.extraTall);
+      rate = frameOption.pricing.extraTall;
     }
 
     return frameArea * rate;

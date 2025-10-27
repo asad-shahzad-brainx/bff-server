@@ -2,26 +2,34 @@ import productByIdentifier from "../operations/productByIdentifier.js";
 import { calculateDoorPrice } from "./calculateDoorPrice.js";
 import getWarrantyConfig from "../operations/getWarrantyConfig.js";
 import getPublishedDoorMetaobjects from "../helpers/getPublishedDoorMetaobjects.js";
+import getShippingCost from "../operations/getShippingCost.js";
 
 const getItemWeightage = (doorConfig) => {
   return doorConfig.frameType !== "none" ? 2 : 1;
 };
 
-const calculateShippingPerUnit = (cartItems) => {
+const calculateShippingPerUnit = async (cartItems) => {
   const totalUnits = cartItems.reduce((acc, item) => {
     const weightage = getItemWeightage(item.doorConfig);
     return acc + weightage * item.quantity;
   }, 0);
 
-  const totalShippingCost = totalUnits > 1 ? 600 : 400;
-  return Math.round(totalShippingCost / totalUnits);
+  try {
+    const totalShippingCost = await getShippingCost(totalUnits);
+    return Math.round(totalShippingCost / totalUnits);
+  } catch (error) {
+    console.error("Error calculating dynamic shipping cost:", error);
+    // Fallback to original logic
+    const totalShippingCost = totalUnits > 1 ? 600 : 400;
+    return Math.round(totalShippingCost / totalUnits);
+  }
 };
 
 const getWarrantyPrice = async (requestBody) => {
   const doorModelArray = await getPublishedDoorMetaobjects(50, true);
   const { cart: cartItems } = requestBody;
 
-  const shippingPerUnit = calculateShippingPerUnit(cartItems);
+  const shippingPerUnit = await calculateShippingPerUnit(cartItems);
   const warrantyConfig = await getWarrantyConfig();
 
   const lineItems = await Promise.all(

@@ -9,6 +9,18 @@ const bundledPricingQuery = `
         fields {
           key
           value
+          reference {
+            ... on Product {
+              id
+              handle
+              title
+              variants(first: 1) {
+                nodes {
+                  id
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -68,8 +80,8 @@ const getAllPricingMetaobjects = async (options = {}) => {
     }
 
     const transformed = {};
-    transformed.frame = transformPricingFields(
-      data?.framePricing?.nodes[0]?.fields
+    transformed.frame = transformFramePricing(
+      data?.framePricing?.nodes || []
     );
     transformed.jambGuard = transformJambGuardPricing(
       data?.jambGuardPricing?.nodes
@@ -106,6 +118,38 @@ const transformPricingFields = (fields) => {
     }
     return acc;
   }, {});
+};
+
+const transformFramePricing = (nodes) => {
+  return nodes
+    .map((node) => {
+      const fieldsMap = {};
+      node.fields.forEach((field) => {
+        fieldsMap[field.key] = field;
+      });
+
+      const frameProduct = fieldsMap.frame_product?.reference;
+      
+      if (!frameProduct || !frameProduct.handle || !frameProduct.variants?.nodes[0]?.id) {
+        return null;
+      }
+      
+      return {
+        handle: node.handle,
+        name: fieldsMap.name?.value || '',
+        frameProduct: {
+          handle: frameProduct.handle,
+          title: frameProduct.title,
+          variantId: frameProduct.variants.nodes[0].id,
+        },
+        pricing: {
+          standard: parseFloat(fieldsMap.standard?.value || 0),
+          tall: parseFloat(fieldsMap.tall?.value || 0),
+          extraTall: parseFloat(fieldsMap.extra_tall?.value || 0),
+        },
+      };
+    })
+    .filter(Boolean);
 };
 
 function transformProtectionPlatePricing(data) {

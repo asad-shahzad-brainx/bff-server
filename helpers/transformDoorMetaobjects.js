@@ -169,6 +169,19 @@ const transformDoorMetaobjects = (metaobjects, isTeamMember) => {
       }
     }
 
+    if (fieldsMap.default_window_size?.reference?.fields) {
+      const windowSizeFieldsMap = {};
+      fieldsMap.default_window_size.reference.fields.forEach((field) => {
+        windowSizeFieldsMap[field.key] = field.value;
+      });
+
+      transformed.defaultWindowSize = {
+        title: "default",
+        width: windowSizeFieldsMap.width ? parseFloat(windowSizeFieldsMap.width) : null,
+        height: windowSizeFieldsMap.height ? parseFloat(windowSizeFieldsMap.height) : null,
+      };
+    }
+
     // Transform all other fields automatically
     Object.keys(fieldsMap).forEach((key) => {
       // Skip fields that are handled specially
@@ -180,6 +193,7 @@ const transformDoorMetaobjects = (metaobjects, isTeamMember) => {
           "product_image",
           "pricing",
           "protection_options",
+          "default_window_size",
         ].includes(key)
       ) {
         return;

@@ -33,7 +33,7 @@ const createDraftOrder = async (req, res) => {
     };
 
     const isTeamMember = await checkTeamMembership(token);
-    const input = await generateDraftOrderInput(parsedBody, req.files, isTeamMember);
+    const { input, enrichedCart } = await generateDraftOrderInput(parsedBody, req.files, isTeamMember);
     // return res.status(201).json({
     //   status: "success",
     //   message: "Draft order created successfully",
@@ -76,7 +76,7 @@ const createDraftOrder = async (req, res) => {
 
     const pageContent = await getPageContent("quote");
     const html = await renderTemplate("main", {
-      input: parsedBody,
+      input: { ...parsedBody, cart: enrichedCart },
       lineItems: input.lineItems,
       terms: {
         title: pageContent.title,
@@ -118,7 +118,7 @@ const createDraftOrder = async (req, res) => {
 
     if (sendEmailToManufacturer === "true" || typeof sendEmailToManufacturer === "undefined") {
       const manufacturerHtml = await renderTemplate("main", {
-        input: parsedBody,
+        input: { ...parsedBody, cart: enrichedCart },
         lineItems: input.lineItems,
         terms: {
           title: pageContent.title,
